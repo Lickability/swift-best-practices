@@ -1,6 +1,6 @@
 # Default Parameters
 ### When do we use them?
-* Use default parameters instead of creating convenience functions that pass this common constant values to the original function
+* Use default parameters instead of creating convenience functions that pass these common constant values to the original function
 
 ### Key Considerations
 * Always document the value of the default parameter
