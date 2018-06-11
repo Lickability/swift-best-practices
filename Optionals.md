@@ -17,4 +17,4 @@ Optionals are used when something is not known at the time of initialization
 * If a function requires an optional value to have a value, we opt to bind with `guard` statements
 
 ### Reference Docs
-* [Optional - Swift Standard Library | Apple Developer Documentation](https://developer.apple.com/documentation/swift/optional/)
+* [The Basics — The Swift Programming Language (Swift 4.2)](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330)
