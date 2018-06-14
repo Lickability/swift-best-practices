@@ -1,3 +1,4 @@
+# Controller
 ### Responsibility
 *Controllers* are the primary connection between *Models*, *ViewModels*, and *Views*.
 
