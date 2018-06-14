@@ -1,3 +1,4 @@
+# Model
 ### Responsibility
 *Models* are responsible for representing the data of the application.
 
