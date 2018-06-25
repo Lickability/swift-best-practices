@@ -35,4 +35,4 @@ Use comments when trying to explain edge cases where code may require complexity
 
 ### Key Considerations
 * Focus on making your code as easy to understand as possible with clear variable names
-* Start comments with double slashes followed by a space i. e. `// Here is a comment`
+* Start comments with double slashes followed by a space e.g. `// Here is a comment`
