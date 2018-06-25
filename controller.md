@@ -1,10 +1,10 @@
 # Controller
 ### Responsibility
-*Controllers* are the primary connection between *Models*, *ViewModels*, and *Views*.
+*Controller*s are the primary connection between *Model*s, *ViewModel*s, and *View*s.
 
 ### Key Considerations
-* *Controllers* come in many different varieties each with a single responsibility. 
-* *Controllers* will often utilize other controllers to fulfill their responsibility.
+* *Controller*s come in many different varieties each with a single responsibility. 
+* *Controller*s will often utilize other controllers to fulfill their responsibility.
 
 ### Interaction Diagram
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41422678-6d3caaa8-6fc7-11e8-9ee6-bd48d3343711.png)
