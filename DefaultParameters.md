@@ -1,9 +1,10 @@
-# Default Parameters
+# Default Parameter Values
 ### When do we use them?
-Use default parameters instead of creating convenience functions that pass these common constant values to the original function
+Use default parameter values instead of creating convenience functions that pass common constant values to the original function
 
 ### Key Considerations
 * Always document the value of the default parameter
+* The default value of a parameter should be the most common use case for the parameter
 
 ### Reference Docs
-* [Functions — The Swift Programming Language (Swift 4.2)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166)
+* [Functions — The Swift Programming Language](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166)
