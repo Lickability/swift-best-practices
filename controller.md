@@ -10,7 +10,7 @@
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41422678-6d3caaa8-6fc7-11e8-9ee6-bd48d3343711.png)
 
 ### Common Controller Types
-[Examples](https://github.com/Lickability/swift-style-guide/blob/master/CommonControllerTypes.md)
+Here are some of the common types of controllers you will use - [Common Controller Types](https://github.com/Lickability/swift-style-guide/blob/master/CommonControllerTypes.md)
 
 ### Code Example
 
