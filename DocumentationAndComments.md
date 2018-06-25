@@ -1,6 +1,6 @@
 # Documentation and Comments
 ### How do we document?
-Anything access level internal or higher requires documentation. An exception is declarations made for protocol conformance.
+Anything with access level `internal` or higher requires documentation with the exception of declarations made for `protocol` conformance or `override`s in subclasses
 
 ### Key Considerations
 * Use Xcode’s auto documentation in most cases (`option + command + /`)
@@ -8,27 +8,27 @@ Anything access level internal or higher requires documentation. An exception is
 
 ### Exceptions 
 
-### Enum
+**Enum**
 * Should have a single line of documentation at the top
-* Each case should documentation in the same format as functions where each associated value is documented as a parameter
+* Documentation on each case should be in the same format as functions where each associated value is documented as a parameter
 
 ```swift
-    /// Represents all possible product category types.
-    enum Category {
-        
-        /// Edible items.
-        case food
-        
-        /// Drinkable items.
-        case beverage
-        
-        /// Other non-consumable merchandise.
-        case merchandise
-    }
+/// Represents all possible product category types.
+enum Category {
+    
+    /// Edible items.
+    case food
+    
+    /// Drinkable items.
+    case beverage
+    
+    /// Other non-consumable merchandise.
+    case merchandise
+}
 ```
 	
-### Closure Signatures & Typealias
-* Documentation in the same format as functions
+**Closure Signature Typealiases**
+* Use the same documentation format as functions with parameters and return values (where appropriate) when documenting `typealias`es for closures.
 
 ### How do we comment?
 Use comments when trying to explain edge cases where code may require complexity or unfamiliar patterns
