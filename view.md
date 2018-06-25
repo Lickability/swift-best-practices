@@ -1,12 +1,12 @@
 # View
 ### Responsibility
-*Views* are responsible for rendering content and handling user interaction with that content.
+*View*s are responsible for rendering content and handling user interaction with that content.
 
 ### Key Considerations
-* Views are responsible for the styling and layout of user interface components.
-* Views define a public interface through their ViewModel.
-* All display properties are configured by setting the View's ViewModel property.
-* User interaction is communicated to Controllers through delegation or closures.
+* *View*s are responsible for the styling and layout of user interface components.
+* *View*s define a public interface through their *ViewModel*.
+* All display properties are configured by setting the *View*'s *ViewModel* property.
+* User interaction is communicated to *Controller*s through delegation or closures.
 
 ### Interaction Diagram  
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423446-5a6c2aaa-6fc9-11e8-9a57-5b31492f59b2.png)
