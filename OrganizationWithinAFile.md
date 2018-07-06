@@ -26,5 +26,5 @@ Group and separate code using `MARK`s. The grouping order for each section of pr
 * Always use `MARK: -` for grouping based on type
 	* The text should be the type you are grouping by
 * Use `MARK:` for other groupings inside of `MARK: -` 
-	* e.g.  `MARK: Helper Functions`
+	* e.g. `MARK: Helper Functions`
 * When adding a `MARK` for an extension, ensure the `MARK` is inside the extension
