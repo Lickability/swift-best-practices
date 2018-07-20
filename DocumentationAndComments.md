@@ -25,7 +25,7 @@ enum Category {
     /// Other non-consumable merchandise.
     case merchandise
     
-    /// An item category that fall outside of the other cases.
+    /// An item category that falls outside of the other cases.
     ///
     /// - Parameter description: A string description of what that category is.
     case other(description: String)
@@ -42,7 +42,7 @@ enum Category {
 typealias ButtonTapHandler = (_ button: UIButton) -> Void
 ```
 **Extensions**
-* When adding an extension to add common functionality, documment the extension with a common about the type of functionality it is adding.
+* When adding an extension to add common functionality to a type, document the extension with a comment about the type of functionality it is adding.
 ```swift
 /// A `UIView` extension that adds layer properties as `@IBInspectable` properties of the view itself so that they can be set within Interface Builder.
 extension UIView {
