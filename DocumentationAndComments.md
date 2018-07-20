@@ -35,6 +35,13 @@ enum Category {
 **Closure Signature Typealiases**
 * Use the same documentation format as functions with parameters and return values (where appropriate) when documenting `typealias`es for closures.
 
+```swift
+/// Signature for a closure that is called when a button is tapped.
+///
+/// - Parameter button: The button that was tapped.
+typealias ButtonTapHandler = (_ button: UIButton) -> Void
+```
+
 ### How do we comment?
 Use comments when trying to explain edge cases where code may require complexity or unfamiliar patterns
 
