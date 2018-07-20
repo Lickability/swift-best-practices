@@ -11,7 +11,7 @@ Like delegates, they are a one-to-one communication where the owner of the prope
 
 **Notifications**
 
-One-too-many communication where subscribers subscribe to a publisher. It is a one-way relationship.
+One-to-many communication where subscribers subscribe to a publisher. It is a one-way relationship.
 
 ### When Do We Use Each?
 * We use *Delegation* to define a set of APIs for one-to-one communication between two instances
