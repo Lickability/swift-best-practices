@@ -2,6 +2,7 @@
 ### Unit Testing
 Unit testing is used to verify that a single unit of work is behaving as expected
 
+**Example**
 ```swift
 func testAddition() {
     let simpleAddition = "5 + 5"
