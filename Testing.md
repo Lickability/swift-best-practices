@@ -2,7 +2,7 @@
 ### Unit Testing
 Unit testing is used to verify that a single unit of work is behaving as expected
 
-**Example**
+Example:
 ```swift
 func testAddition() {
     let simpleAddition = "5 + 5"
@@ -18,7 +18,7 @@ func testAddition() {
 ### UI Testing
 UI testing is used to ensure that the user interface that is displayed to the user is the one that is expected to be displayed
 
-**Example**
+Example:
 ```swift
 func testEmptyState() {
     let emptyStateLabel = app.staticTexts["You don't have any games yet!"]
