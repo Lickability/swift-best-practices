@@ -1,6 +1,6 @@
 # Localization
 ### How do we use them?
-We use the localized tools built into Xcode e.g. `NSLocalizedString`
+We use the localization tools built into Xcode e.g. `NSLocalizedString`
 
 ### Key Considerations
 * All user facing text should be made localizable with the [`NSLocalizedString`](https://developer.apple.com/documentation/foundation/nslocalizedstring) family of APIs with corresponding [`Localizable.stringsdict`](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/StringsdictFileFormat/StringsdictFileFormat.html) files for plurals
