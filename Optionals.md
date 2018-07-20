@@ -1,6 +1,6 @@
 # Optionals
 ### When do we use them?
-Optionals are used when something is not known at the time of initialization, when an API can fail, or when an absence of a value provides additional meaning.
+Optionals are used when something is not known at the time of initialization, when an API can fail, or when an absence of a value provides additional meaning
 
 ### Key Considerations
 * Evaluate if you need an optional value, and avoid them if possible
