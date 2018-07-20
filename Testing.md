@@ -7,7 +7,6 @@ func testAddition() {
     let simpleAddition = "5 + 5"
     let negativeAddtion = "2 + -8"
     let doubleNegative = "-7 + -3"
-    let notSupportedString = "10 + 6 + 4 + pi"
         
     XCTAssertEqual(calculator.evaluate(simpleAddition), 10)
     XCTAssertEqual(calculator.evaluate(negativeAddtion), -6)
