@@ -24,6 +24,11 @@ enum Category {
     
     /// Other non-consumable merchandise.
     case merchandise
+    
+    /// An item category that fall outside of the other cases.
+    ///
+    /// - Parameter description: A string description of what that category is.
+    case other(description: String)
 }
 ```
 	
