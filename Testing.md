@@ -12,7 +12,7 @@ func testAddition() {
     XCTAssertEqual(calculator.evaluate(simpleAddition), 10)
     XCTAssertEqual(calculator.evaluate(negativeAddtion), -6)
     XCTAssertEqual(calculator.evaluate(doubleNegative), -10)
-    }
+}
 ```
 
 ### UI Testing
