@@ -41,6 +41,26 @@ enum Category {
 /// - Parameter button: The button that was tapped.
 typealias ButtonTapHandler = (_ button: UIButton) -> Void
 ```
+**Extensions**
+* When adding an extension to add common functionality, documment the extension with a common about the type of functionality it is adding.
+```swift
+/// A `UIView` extension that adds layer properties as `@IBInspectable` properties of the view itself so that they can be set within Interface Builder.
+extension UIView {
+    
+    /// The receiver’s `layer` corner radius.
+    ///
+    /// - SeeAlso:
+    /// [CALayer.cornerRadius](https://developer.apple.com/documentation/quartzcore/calayer/1410818-cornerradius)
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+}
+```
 
 ### How do we comment?
 Use comments when trying to explain edge cases where code may require complexity or unfamiliar patterns
