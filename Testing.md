@@ -18,6 +18,23 @@ func testAddition() {
 ### UI Testing
 UI testing is used to ensure that the user interface that is displayed to the user is the one that is expected to be displayed
 
+**Example**
+```swift
+func testEmptyState() {
+    let emptyStateLabel = app.staticTexts["You don't have any games yet!"]
+    XCTAssertTrue(emptyStateLabel.exists)
+    
+    let addAGameButton = app.buttons["Add a game"]
+    XCTAssertTrue(addAGameButton.exists)
+    
+    addAGameButton.tap()
+    waitForExpectations(timeout: 2.0, handler: nil)
+    
+    let createAGameLabel = app.staticTexts["Create a game"]
+    XCTAssertTrue(createAGameLabel.exists)
+}
+```
+
 ### Integration Testing
 Integration testing is used to verify work between multiple entities
 
