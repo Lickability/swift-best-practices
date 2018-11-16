@@ -4,7 +4,7 @@
 
 ### Key Considerations
 * *View*s are responsible for the styling and layout of user interface components.
-* Custom *View*s define an interface for configuring display properties of their contents through their *ViewModel*.
+* Custom *View*s that are composed of other views define an interface for configuring display properties of their contents through their [*ViewModel*](https://github.com/Lickability/swift-style-guide/blob/master/ViewModel.md).
 * User interaction is communicated to *Controller*s through delegation or closures.
 
 ### Interaction Diagram  
