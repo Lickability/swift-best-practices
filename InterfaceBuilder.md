@@ -12,4 +12,4 @@
 * Load views from nibs
 
 ### Evaluation
-* We are currently evaluating how we use Interface Builder and Storyboards as a whole. Refer to the pro and con list in #34.
+* We are currently evaluating how we use Interface Builder and Storyboards as a whole. Refer to the pro and con list in [here](https://github.com/Lickability/swift-style-guide/issues/14).
