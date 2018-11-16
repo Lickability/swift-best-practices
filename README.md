@@ -1,4 +1,4 @@
-# Lickability Swift Style Guide
+# Lickability Development Best Practices
 
 ## Architecture Info
 
