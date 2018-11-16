@@ -1,0 +1,12 @@
+# Interface Builder
+### How do we use Interface Builder?
+* We use Interface Builder to separate layout code into their own files and handle auto layout 
+
+### Key Considerations
+* Leverage stack views whenever possible
+* Each nib should have a single view
+	* Separate multiple views into separate nibs
+* Use  `IBDesignable`& `IBInspectable` for common design properties 
+	* e.g. making a view a circle or giving it a border
+* Use asset catalog to manage images and colors used 
+* Load views from nibs
