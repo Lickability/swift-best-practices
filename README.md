@@ -16,7 +16,7 @@
 * [Documentation and Comments](https://github.com/Lickability/swift-style-guide/blob/master/DocumentationAndComments.md)
 * [Extensions](https://github.com/Lickability/swift-style-guide/blob/master/Extensions.md)
 * [Imports](https://github.com/Lickability/swift-style-guide/blob/master/Imports.md)
-* [Organization within a file](https://github.com/Lickability/swift-style-guide/blob/master/OrganizationWithinAFile.md)
+* [Organization Within a File](https://github.com/Lickability/swift-style-guide/blob/master/OrganizationWithinAFile.md)
 * [Project Groups](https://github.com/Lickability/swift-style-guide/blob/master/ProjectGroups.md)
 
 ## Technical Info
