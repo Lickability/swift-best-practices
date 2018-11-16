@@ -13,7 +13,7 @@
 
 ### Evaluation
 * We are currently evaluating how we use Interface Builder and Storyboards as a whole
-        * Refer to the pro and con list in [here](https://github.com/Lickability/swift-style-guide/issues/14)
+    * Refer to the pro and con list in [here](https://github.com/Lickability/swift-style-guide/issues/14)
 * Right now we are not using Storyboards and instead favoring just using nibs 
         * This is being tested in Scorecard
 	
