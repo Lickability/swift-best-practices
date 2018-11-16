@@ -4,8 +4,7 @@
 
 ### Key Considerations
 * *View*s are responsible for the styling and layout of user interface components.
-* *View*s define a public interface through their *ViewModel*.
-* All display properties are configured by setting the *View*'s *ViewModel* property.
+* Custom *View*s define an interface for configuring display properties of their contents through their *ViewModel*.
 * User interaction is communicated to *Controller*s through delegation or closures.
 
 ### Interaction Diagram  
