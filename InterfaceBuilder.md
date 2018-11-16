@@ -8,7 +8,7 @@
     * Separate `UIView` subclasses designed in Interface Builder into their own nib files
 * Use `IBDesignable` and `IBInspectable` for common design properties 
     * e.g. specifying a view’s corner radius or giving it a border
-* When setting colors in Interface Builder use the ones defined in the Assets catalog
+* When setting colors in Interface Builder, use the ones defined in asset catalogs to ensure that use of common colors are updated from a single source
 * Whenever possible, design and layout views in Interface Builder, and load them from their corresponding nibs from code. 
     * For `UITableViewCell` and `UICollectionViewCells`, register the cell with the `UITableView` or `UICollectionView` using the nib name. For other views, refer to Lickability/code-snippets#45. (Replace with actual example once implemented).
 
