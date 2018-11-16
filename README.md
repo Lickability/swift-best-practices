@@ -13,7 +13,7 @@
 
 ## Organizational Info 
 * [Assets](https://github.com/Lickability/swift-style-guide/blob/master/Assets.md)
-* [Documentation and comments](https://github.com/Lickability/swift-style-guide/blob/master/DocumentationAndComments.md)
+* [Documentation and Comments](https://github.com/Lickability/swift-style-guide/blob/master/DocumentationAndComments.md)
 * [Extensions](https://github.com/Lickability/swift-style-guide/blob/master/Extensions.md)
 * [Imports](https://github.com/Lickability/swift-style-guide/blob/master/Imports.md)
 * [Organization within a file](https://github.com/Lickability/swift-style-guide/blob/master/OrganizationWithinAFile.md)
