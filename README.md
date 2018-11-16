@@ -23,6 +23,7 @@
 * [Custom Operators](https://github.com/Lickability/swift-style-guide/blob/rough-draft-readme/CustomOperators.md)
 * [Default Parameters](https://github.com/Lickability/swift-style-guide/blob/rough-draft-readme/DefaultParameters.md)
 * [Localization](https://github.com/Lickability/swift-style-guide/blob/rough-draft-readme/Localization.md)
+* [Interface Builder](https://github.com/Lickability/swift-style-guide/blob/master/InterfaceBuilder.md)
 * [Object Communication](https://github.com/Lickability/swift-style-guide/blob/rough-draft-readme/Object%20Communication.md)
 * [Optionals](https://github.com/Lickability/swift-style-guide/blob/rough-draft-readme/Optionals.md)
 * [Protocols](https://github.com/Lickability/swift-style-guide/blob/rough-draft-readme/Protocols.md)
