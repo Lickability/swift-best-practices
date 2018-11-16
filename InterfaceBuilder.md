@@ -3,7 +3,7 @@
 * We use Interface Builder in lieu of layout code to reduce the amount of code in views and view controllers
 
 ### Key Considerations
-* Use `UIStackViews` instead of explicit constraints between siblings whenever possible, unless noticeable performance issues are encountered
+* Use `UIStackView`s instead of explicit constraints between siblings whenever possible, unless noticeable performance issues are encountered
 * Each nib should have a single top-level item
    * Separate `UIView` subclasses designed in Interface Builder into their own nib files
 * Use `IBDesignable` and `IBInspectable` for common design properties 
