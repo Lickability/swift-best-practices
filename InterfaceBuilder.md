@@ -10,3 +10,6 @@
 	* e.g. making a view a circle or giving it a border
 * Use asset catalog to manage images and colors used 
 * Load views from nibs
+
+### Evaluation
+* We are currently evaluating how we use Interface Builder and Storyboards as a whole. Refer to the pro and con list in #34.
