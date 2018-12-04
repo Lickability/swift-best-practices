@@ -9,7 +9,7 @@
 *View*s are responsible for rendering content and handling user interaction with that content.
 
 ### Controller
-*Controller*s are the primary connection between *Model*s, *ViewModel*s, and *View*s.
+*Controller*s are the primary connection between *Model*s, *View Model*s, and *View*s.
 
-### ViewModel
-A *ViewModel* is a *View*’s model. It encapsulates the data needed to populate a particular kind of view and the presentation logic needed to transform the data into properties that can be rendered.
+### View Model
+A *View Model* is a *View*’s model. It encapsulates the data needed to populate a particular kind of view and the presentation logic needed to transform the data into properties that can be rendered.
