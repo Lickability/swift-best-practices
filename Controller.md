@@ -1,6 +1,6 @@
 # Controller
 ### Responsibility
-*Controller*s are the primary connection between *Model*s, *ViewModel*s, and *View*s.
+*Controller*s are the primary connection between *Model*s, *View Model*s, and *View*s.
 
 ### Key Considerations
 * *Controller*s come in many different varieties each with a single responsibility. 
