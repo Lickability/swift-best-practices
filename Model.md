@@ -3,9 +3,9 @@
 *Models* are the applications dynamic data structure, independent of the user interface. They directly manage the data and business logic of the application.
 
 ### Key Considerations
-* Structures your data in a reliable form and prepares it based on controllers instructions
+* *Models* can structure your data in a reliable form and prepare it based on the controllers instructions.
 * They are **not** responsible for retrieving data from the persistence or network layers. 
-* Mutability on models should be avoided, opting instead to recreate the model when information changes. Mutable models can create weird bugs when data is being accessed from multiple threads. In cases where data is being managed in its own context or object (i.e Realm, Core Data), mutability is encouraged.
+* Mutability on models should be avoided, opting instead to recreate the model when information changes. Mutable models can create race conditions when data is being simultaneously written and read across multiple threads or queues. 
 
 ### Interaction Diagram
 ![architecturediagramsmodel](https://user-images.githubusercontent.com/16432044/41422895-ecc46a86-6fc7-11e8-8719-ff2d0134f47d.png)
@@ -47,9 +47,7 @@ struct Product {
             switch category {
             case .food:
                 return true
-            case .beverage:
-                return false
-            case .merchandise:
+            case .beverage, .merchandise:
                 return false
             }
         }
