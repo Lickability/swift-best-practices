@@ -5,7 +5,7 @@ A *View Model* is a *View*'s model. It encapsulates the data needed to populate 
 ### Key Considerations
 * *View Model*s define the single point of configuration for displayable properties.
 * Most of the properties can easily be mapped from similar properties on the *Model*.
-* *View Model*s contain the logic for transforming their own properties into displayable versions (e.g. a date object into localizable, human-readable text)
+* *View Model*s contain the logic for transforming their own properties into displayable versions (e.g. a date object into localizable, human-readable text).
 
 ### Interaction Diagram  
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423586-afbc2640-6fc9-11e8-86ba-3a565de95dae.png)
