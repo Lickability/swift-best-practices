@@ -2,16 +2,16 @@
 ### Parser
 Transforms structured data into model types
 
-### NetworkController
+### Network Controller
 Handles sending of network requests and receiving response data
 
-### PersistenceController
+### Persistence Controller
 Reads and writes models from / to the data layer
 
 ### Translator
 Handles complex conversions of models to view models
 
-### ViewController
+### View Controller
 Manages a view hierarchy and UI logic for your app and coordinates with other controllers to keep it up to date
 
 ### Updater
