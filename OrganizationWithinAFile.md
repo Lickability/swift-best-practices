@@ -28,6 +28,7 @@ class SignupViewController: UIViewController {
 ```
 
 #### Good Code Example
+In the example below, the file has only 1 major type declaration. The protocol and extension are supporting the major type of `LoginViewController` and therefore allowed to be in this file.
 ```swift
 protocol LoginViewControllerDelegate {
     /// some implementation
