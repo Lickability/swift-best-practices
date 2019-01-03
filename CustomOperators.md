@@ -6,7 +6,7 @@ Custom operators should be avoided. Custom operators can reduce the readability 
 * Overloading of operators should be used sparingly 
 	* e.g. protocol conformance such as `Equatable` or  when two objects are backed by a numeric value such as `Price`
 
-* If there was a need for custom operators, they should be placed in an extension on the `Type` they operate on
+* Place the implementation of any custom operators in an extension on the type it operates on.
 
 * Be sure to refer to our [Extensions](https://github.com/Lickability/swift-style-guide/blob/master/Extensions.md) document when deciding how to name the extension.
 
