@@ -15,7 +15,7 @@
 ```swift
 /// Protocol to specify what must be implemented in order to conform to a LoginViewControllerDelegate.
 protocol LoginViewControllerDelegate: class {
-    func passwordRecoveryRequested(from sender: UIButton)
+    func loginViewControllerPasswordRecoveryRequested(_ loginViewController: LoginViewController)
 }
 
 /// A controller that manages the actions for login and forgot password buttons.
