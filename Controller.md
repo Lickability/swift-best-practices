@@ -1,6 +1,6 @@
 # Controller
 ### Responsibility
-*Controller*s update their views based on changes in their *Models* by creating and passing *View Models* to them. They also receive input from views and update the *Models* accordingly. 
+*Controller*s are responsible for controlling the flow of the application execution. 
 
 ### Key Considerations
 * *Controller*s will often utilize other controllers to fulfill their responsibility.
@@ -25,6 +25,13 @@ final class EmptyStateViewController: UIViewController {
         /// The text to display on screen.
         let message: String
         
+        /// A button the user interacts with.
+        let action: Action
+    }
+    
+    /// A struct used to contain the properties associated with the action button.
+    struct Action {
+        
         /// The text for the action button.
         let actionText: String
         
@@ -47,6 +54,7 @@ final class EmptyStateViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -54,10 +62,12 @@ final class EmptyStateViewController: UIViewController {
     
     private func configureView() {
         emptyStateLabel.text = viewModel.message
-        emptyStateButton.setTitle(viewModel.actionText, for: .normal)
+        emptyStateButton.setTitle(viewModel.action.actionText, for: .normal)
     }
     
+    // MARK: - IBActions
     @IBAction private func emptyStateButtonTapped(_ sender: Any) {
-        viewModel.actionHandler()
+        viewModel.action.actionHandler()
     }
+}
 ```
