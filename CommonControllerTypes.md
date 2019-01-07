@@ -33,58 +33,14 @@ open class AcknowParser {
 
      - return: a tuple with the header and footer values.
      */
-    open func parseHeaderAndFooter() -> (header: String?, footer: String?) {
-        let preferenceSpecifiers: AnyObject? = self.rootDictionary["PreferenceSpecifiers"]
-
-        if let preferenceSpecifiers = preferenceSpecifiers, preferenceSpecifiers is [AnyObject] {
-            let preferenceSpecifiersArray = preferenceSpecifiers as! [AnyObject]
-            if let headerItem = preferenceSpecifiersArray.first,
-                let footerItem = preferenceSpecifiersArray.last,
-                let headerText = headerItem["FooterText"], headerItem is [String: String],
-                let footerText = footerItem["FooterText"], footerItem is [String: String] {
-                    return (headerText as! String?, footerText as! String?)
-            }
-        }
-
-        return (nil, nil)
-    }
+    open func parseHeaderAndFooter() -> (header: String?, footer: String?) {}
 
     /**
      Parses the array of acknowledgements.
 
      - return: an array of `Acknow` instances.
      */
-    open func parseAcknowledgements() -> [Acknow] {
-        let preferenceSpecifiers: AnyObject? = self.rootDictionary["PreferenceSpecifiers"]
-
-        if let preferenceSpecifiers = preferenceSpecifiers, preferenceSpecifiers is [AnyObject] {
-            let preferenceSpecifiersArray = preferenceSpecifiers as! [AnyObject]
-
-            // Remove the header and footer
-            let ackPreferenceSpecifiers = preferenceSpecifiersArray.filter({ (object: AnyObject) -> Bool in
-                if let firstObject = preferenceSpecifiersArray.first,
-                    let lastObject = preferenceSpecifiersArray.last {
-                        return (object.isEqual(firstObject) == false && object.isEqual(lastObject) == false)
-                }
-                return true
-            })
-
-            let acknowledgements = ackPreferenceSpecifiers.map({
-                (preferenceSpecifier: AnyObject) -> Acknow in
-                if let title = preferenceSpecifier["Title"] as! String?,
-                    let text = preferenceSpecifier["FooterText"] as! String? {
-                        return Acknow(title: title, text: text, license: preferenceSpecifier["License"] as? String)
-                }
-                else {
-                    return Acknow(title: "", text: "", license: nil)
-                }
-            })
-
-            return acknowledgements
-        }
-
-        return []
-    }
+    open func parseAcknowledgements() -> [Acknow] {}
 }
 ```
 
@@ -168,33 +124,12 @@ final class NetworkController: NetworkControlling {
     // MARK: - NetworkControlling
     
     @discardableResult
-    func performFullResponseRequest<ResultType: Decodable>(_ request: NetworkRequest, completionQueue: OperationQueue, completion: @escaping (NetworkResponse<ResultType>) -> Void) -> URLSessionTask {
-        let deserializer = JSONDeserializer<ResultType>()
-        return performFullResponseRequest(request, deserializer: deserializer, completionQueue: completionQueue, completion: completion)
-    }
+    func performFullResponseRequest<ResultType: Decodable>(_ request: NetworkRequest, completionQueue: OperationQueue, completion: @escaping (NetworkResponse<ResultType>) -> Void) -> URLSessionTask {}
     
-    func performRequest<ResultType: Decodable>(_ request: NetworkRequest, completionQueue: OperationQueue, completion: @escaping (Result<ResultType>) -> Void) where ResultType: Decodable {
-        let deserializer = JSONDeserializer<ResultType>()
-        performRequest(request, deserializer: deserializer, completionQueue: completionQueue, completion: completion)
-    }
+    func performRequest<ResultType: Decodable>(_ request: NetworkRequest, completionQueue: OperationQueue, completion: @escaping (Result<ResultType>) -> Void) where ResultType: Decodable {}
     
     @discardableResult
-    func performFullResponseRequest<ResultType: Decodable, DeserializerType: NetworkResponseDeserializing>(_ request: NetworkRequest, deserializer: DeserializerType, completionQueue: OperationQueue, completion: @escaping (NetworkResponse<ResultType>) -> Void) -> URLSessionTask where DeserializerType: NetworkResponseDeserializing, DeserializerType.DecodedType == ResultType {
-        let serializedRequest = networkRequestSerializer.serializedRequest(from: request)
-        
-        let dataTask = urlSession.dataTask(with: serializedRequest) { (data, response, error) in
-            let result: Result<ResultType> = self.result(with: deserializer, from: data, urlResponse: response, networkError: error)
-            
-            completionQueue.addOperation {
-                let response = NetworkResponse(response: response, data: data, result: result)
-                completion(response)
-            }
-        }
-        
-        dataTask.resume()
-        
-        return dataTask
-    }
+    func performFullResponseRequest<ResultType: Decodable, DeserializerType: NetworkResponseDeserializing>(_ request: NetworkRequest, deserializer: DeserializerType, completionQueue: OperationQueue, completion: @escaping (NetworkResponse<ResultType>) -> Void) -> URLSessionTask where DeserializerType: NetworkResponseDeserializing, DeserializerType.DecodedType == ResultType {}
     
     func performRequest<ResultType: Decodable, DeserializerType: NetworkResponseDeserializing>(_ request: NetworkRequest, deserializer: DeserializerType, completionQueue: OperationQueue, completion: @escaping (Result<ResultType>) -> Void) where DeserializerType.DecodedType == ResultType  {
         performFullResponseRequest(request, deserializer: deserializer, completionQueue: completionQueue) { (response: NetworkResponse<ResultType>) in
@@ -204,25 +139,7 @@ final class NetworkController: NetworkControlling {
     
     // MARK: - NetworkController
     
-    private func result<ResultType: Decodable, DeserializerType: NetworkResponseDeserializing>(with deserializer: DeserializerType, from responseData: Data?, urlResponse: URLResponse?, networkError: Swift.Error?) -> Result<ResultType> where DeserializerType.DecodedType == ResultType {
-        let result: Result<ResultType>
-        
-        if let error = networkError {
-            result = Result.failure(error)
-        } else if let data = responseData {
-            do {
-                let resultObject = try deserializer.deserialize(data: data)
-                
-                result = Result.success(resultObject)
-            } catch {
-                result = Result.failure(error)
-            }
-        } else {
-            result = Result.failure(Error.emptyResponseData)
-        }
-        
-        return result
-    }
+    private func result<ResultType: Decodable, DeserializerType: NetworkResponseDeserializing>(with deserializer: DeserializerType, from responseData: Data?, urlResponse: URLResponse?, networkError: Swift.Error?) -> Result<ResultType> where DeserializerType.DecodedType == ResultType {}
 }
 
 /// Extends `NetworkController` to add a custom `Error` type.
@@ -317,20 +234,7 @@ final class PersistenceController {
     ///   - key: The key used to persist and later retrieve the object.
     ///   - completionQueue: The queue on which the completion handler is called. Defaults to `.main`.
     ///   - completion: The completion handler called when persistence completes successfully or fails.
-    func persist<T: NSCoding>(object: T, forKey key: String, completionQueue: OperationQueue = .main, completion: @escaping (Result<T>) -> Void) {
-        cache.setObject(object, forKey: key) { _, _, persistedObject in
-            let result: Result<T>
-            if let persistedObject = persistedObject as? T {
-                result = .success(persistedObject)
-            } else {
-                result = .failure(Error.objectFailedToPersist(object: object))
-            }
-            
-            completionQueue.addOperation {
-                completion(result)
-            }
-        }
-    }
+    func persist<T: NSCoding>(object: T, forKey key: String, completionQueue: OperationQueue = .main, completion: @escaping (Result<T>) -> Void) {}
     
     /// Synchronously persists an object on disk.
     ///
@@ -347,20 +251,7 @@ final class PersistenceController {
     ///   - key: The key used to access the persisted object.
     ///   - completionQueue: The queue on which the completion handler is called. Defaults to `.main`.
     ///   - completion: The completion handler called when the object is retrieved, or no object is found.
-    func retrieveObject<T: NSCoding>(forKey key: String, completionQueue: OperationQueue = .main, completion: @escaping (Result<T>) -> Void) {
-        cache.object(forKey: key) { _, _, object in
-            let result: Result<T>
-            if let object = object as? T {
-                result = .success(object)
-            } else {
-                result = .failure(Error.objectNotFound)
-            }
-            
-            completionQueue.addOperation {
-                completion(result)
-            }
-        }
-    }
+    func retrieveObject<T: NSCoding>(forKey key: String, completionQueue: OperationQueue = .main, completion: @escaping (Result<T>) -> Void) {}
     
     /// Asynchronously retrieves a list of object from disk stored under the given keys.
     ///
@@ -368,37 +259,7 @@ final class PersistenceController {
     ///   - keys: The keys used to access the persisted objects.
     ///   - completionQueue: The queue on which the completion handler is called. Defaults to `.main`.
     ///   - completion: The completion handler called when the objects are retrieved, or if objects are found.
-    func retrieveObjects<T: NSCoding>(forKeys keys: [String], completionQueue: OperationQueue = .main, completion: @escaping (Result<[T]>) -> Void) {
-        DispatchQueue(label: "PersistenceControllerQueue").async {
-            var objects = [T]()
-            let operationQueue = OperationQueue()
-            
-            let arrayDispatchQueue = DispatchQueue(label: "ArrayDispatchQueue")
-            
-            let operations = keys.flatMap { key in
-                BlockOperation {
-                    guard let object: T = self.retrieveObject(forKey: key) else { return }
-                    
-                    arrayDispatchQueue.sync {
-                        objects.append(object)
-                    }
-                }
-            }
-            
-            operationQueue.addOperations(operations, waitUntilFinished: true)
-            
-            let result: Result<[T]>
-            if objects.isEmpty {
-                result = .failure(Error.objectNotFound)
-            } else {
-                result = .success(objects)
-            }
-            
-            completionQueue.addOperation {
-                completion(result)
-            }
-        }
-    }
+    func retrieveObjects<T: NSCoding>(forKeys keys: [String], completionQueue: OperationQueue = .main, completion: @escaping (Result<[T]>) -> Void) {}
     
     /// Synchronously retrieves an object from disk stored under a given key.
     ///
@@ -412,11 +273,7 @@ final class PersistenceController {
     ///
     /// - Parameter keys: The keys used to access the persisted objects.
     /// - Returns: The persisted objects, or `nil` if no objects were found under the specified keys.
-    func retrieveObjects<T: NSCoding>(forKeys keys: [String]) -> [T]? {
-        let objects: [T] = keys.flatMap { retrieveObject(forKey: $0) }
-        
-        return objects.isEmpty ? nil : objects
-    }
+    func retrieveObjects<T: NSCoding>(forKeys keys: [String]) -> [T]? {}
     
     /// Asynchronously removes an object stored under a given key from disk.
     ///
@@ -424,24 +281,13 @@ final class PersistenceController {
     ///   - key: The key used to access the persisted object.
     ///   - completionQueue: The queue on which the completion handler is called. Defaults to `.main`.
     ///   - completion: The completion handler called once the object has been removed.
-    func removeObject(forKey key: String, completionQueue: OperationQueue = .main, completion: @escaping () -> Void) {
-        cache.removeObject(forKey: key) { _, _, _ in
-            completionQueue.addOperation {
-                completion()
-            }
-        }
-    }
+    func removeObject(forKey key: String, completionQueue: OperationQueue = .main, completion: @escaping () -> Void) {}
     
     /// Retrieves the byte count on disk of an object at the specified key.
     ///
     /// - Parameter key: The key of object for which to retrieve the byte count.
     /// - Returns: The byte count on disk of the object at the specified key, or nil if there is no object at that key or no file infromation could be retrieved.
-    func diskByteCount(forObjectAtKey key: String) -> Int? {
-        guard let fileURL = cache.diskCache.fileURL(forKey: key) else { return nil }
-        
-        let values = try? fileURL.resourceValues(forKeys: [.totalFileAllocatedSizeKey])
-        return values?.totalFileAllocatedSize
-    }
+    func diskByteCount(forObjectAtKey key: String) -> Int? {}
 }
 ```
 
@@ -464,15 +310,7 @@ final class TeamToScoreListTableViewCellViewModelTranslator {
     ///
     /// - Parameter teamScore: The team score to translate into a view model.
     /// - Returns: The translated view model.
-    func translate(teamScore: TeamScore, isEditable: Bool) -> ScoreListTableViewCell.ViewModel {
-        let playerInformation: [ScoreListTableViewCell.ViewModel.PlayerInformation] = teamScore.team.playerData.map { player in
-            let image = imageManager?.cachedImage(forKey: player.identifier.rawValue)
-            
-            return ScoreListTableViewCell.ViewModel.PlayerInformation(identifier: player.identifier.rawValue, avatarImage: image, color: player.color?.color, name: player.displayName)
-        }
-        
-        return ScoreListTableViewCell.ViewModel(teamScoreIdentifier: teamScore.identifier.rawValue, playerInformation: playerInformation, score: teamScore.score, isEditable: isEditable)
-    }
+    func translate(teamScore: TeamScore, isEditable: Bool) -> ScoreListTableViewCell.ViewModel {}
 }
 ```
 
@@ -568,26 +406,7 @@ final class MagazineIssueUpdater {
     ///   - completion: The completion handler that delivers the result. Called on the main queue.
     /// - Returns: Returns the `URLSessionTask` that is handling the request in order to cancel or suspend as necessary. Discardable.
     @discardableResult
-    func loadAsset(from url: URL, inIssueWithIdentifier issueIdentifier: Int64, completion: @escaping (Result<SavedAssetResponse>) -> Void) -> URLSessionTask {
-        let request = URLRequest(url: url)
-        
-        return networkController.performFullResponseRequest(request, deserializer: DataDeserializer(), completionQueue: .main) { response in
-            switch response.result {
-            case let .success(assetData):
-                guard let urlResponse = response.response else {
-                    assertionFailure()
-                    completion(.failure(NetworkController.Error.emptyResponseData))
-                    return
-                }
-                
-                let assetResponse = SavedAssetResponse(response: urlResponse, data: assetData, associatedIdentifier: issueIdentifier)
-                completion(.success(assetResponse))
-                
-            case let .failure(error):
-                completion(.failure(error))
-            }
-        }
-    }
+    func loadAsset(from url: URL, inIssueWithIdentifier issueIdentifier: Int64, completion: @escaping (Result<SavedAssetResponse>) -> Void) -> URLSessionTask {}
 }
 ```
 
@@ -661,15 +480,11 @@ final class TableViewDataSource<CollectionType: Collection>: NSObject, UITableVi
     ///
     /// - Parameter indexPath: The position of the element to access.
     /// - Returns: The element at the specified position.
-    func element(at indexPath: IndexPath) -> CollectionType.Element {
-        return collection[indexPath.row]
-    }
+    func element(at indexPath: IndexPath) -> CollectionType.Element {}
     
     // MARK: - UITableViewDataSource
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return collection.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.row < collection.count, indexPath.row >= 0 else {
@@ -711,9 +526,7 @@ extension TableViewDataSource: Collection {
 
 extension TableViewDataSource: BidirectionalCollection where CollectionType: BidirectionalCollection {
     
-    func index(before i: Int) -> Int {
-        return collection.index(before: i)
-    }
+    func index(before i: Int) -> Int {}
     
 }
 
@@ -725,22 +538,12 @@ extension TableViewDataSource where CollectionType: RangeReplaceableCollection {
     ///
     /// - Parameter element: The object that is to be added to collection.
     /// - Returns: The index path corresponding to the location where the object was inserted into the collection.
-    func add(element: CollectionType.Element) -> IndexPath {
-        collection.append(element)
-        return IndexPath(item: collection.count - 1, section: 0)
-    }
+    func add(element: CollectionType.Element) -> IndexPath {}
 
     /// Removes the element for at the index path.
     ///
     /// - Parameter indexPath: The index path for the element to remove.
-    func removeElement(at indexPath: IndexPath) {
-        guard indexPath.row < collection.count, indexPath.row >= 0 else {
-            assertionFailure("The index path\(indexPath) provided is out of range. This is unexpected.`")
-            return
-        }
-        
-        collection.remove(at: indexPath.row)
-    }
+    func removeElement(at indexPath: IndexPath) {}
     
 }
 ```
