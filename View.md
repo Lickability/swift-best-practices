@@ -55,9 +55,9 @@ final class LoginViewController: UIViewController {
 ### Interaction Diagram  
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423446-5a6c2aaa-6fc9-11e8-9a57-5b31492f59b2.png)
 
-###Interface Builder
+### Interface Builder
 
-*Views* designed in the Interface Builder editor are referenced in code via a *IBOutlet* or *IBAction*. For more information, checkout [How to Connect UI to Code](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/ConnectTheUIToCode.html).
+*Views* designed in the Interface Builder editor are referenced in code via a *IBOutlet* or *IBAction*. For more information, checkout [How we use Interface Builder](InterfaceBuilder.md).
 
 ### Code Example
 
