@@ -1,9 +1,8 @@
 # Controller
 ### Responsibility
-*Controller*s are the primary connection between *Model*s, *View Model*s, and *View*s.
+*Controller*s are responsible for controlling the flow of the application execution. 
 
 ### Key Considerations
-* *Controller*s come in many different varieties each with a single responsibility. 
 * *Controller*s will often utilize other controllers to fulfill their responsibility.
 
 ### Interaction Diagram
@@ -15,58 +14,60 @@ Here are some of the common types of controllers you will use - [Common Controll
 ### Code Example
 
 ```swift
-/// Fetches and updates product data on disk.
-final class ProductUpdater {
+/// A `UIViewController` subclass that represents an empty state with an action button.
+final class EmptyStateViewController: UIViewController {
+    @IBOutlet private weak var emptyStateLabel: UILabel!
+    @IBOutlet private weak var emptyStateButton: UIButton!
     
-    /// Custom errors that can occur when using `ProductUpdater`.
-    enum Error: Swift.Error {
+    /// A struct used to contain the information need to configure the view of the empty state.
+    struct ViewModel {
         
-        /// The updater was deallocated, but must be kept around to complete the operation.
-        case objectDeallocated
+        /// The text to display on screen.
+        let message: String
+        
+        /// A button the user interacts with.
+        let action: Action
     }
     
-    private let networkController: NetworkController
-    private let productPersistenceController: PersistenceController
-    
-    /// Creates a new `ProductUpdater`
-    ///
-    /// - Parameters:
-    ///   - networkController: The network controller responsible for making network requests.
-    ///   - productPersistenceController: The persistence controller responsible for storing and retrieving products.
-    init(networkController: NetworkController = NetworkController(), productPersistenceController: PersistenceController = PersistenceController(identifier: .productCache, rootDirectoryURL: .persistedDataRootDirectory)) {
-        self.networkController = networkController
-        self.productPersistenceController = productPersistenceController
+    /// A struct used to contain the properties associated with the action button.
+    struct Action {
+        
+        /// The text for the action button.
+        let actionText: String
+        
+        /// A closure that handles responding to a user's tap.
+        let actionHandler: () -> Void
     }
     
-    /// Updates the specified product from the API.
+    private let viewModel: ViewModel
+    
+    /// Creates a EmptyStateViewController.
     ///
-    /// - Parameters:
-    ///   - url: The API URL from which to retrieve the product.
-    ///   - completion: The completion handler that delivers the result. Called on the main queue.
-    /// - Returns: Returns the `URLSessionTask` that is handling the request in order to cancel or suspend as necessary. Discardable.
-    @discardableResult
-    func updateProduct(from url: URL, completion: @escaping (Result<Product>) -> Void) -> URLSessionTask {
-        return networkController.performRequest(url, completionQueue: OperationQueue.main) { [weak self] networkResponse in
-            guard let strongSelf = self else {
-                completion(.failure(Error.objectDeallocated))
-                return
-            }
-            
-            switch networkResponse {
-            case let .success(newProduct):
-                strongSelf.productPersistenceController.persist(object: newProduct, forKey: url.absoluteString, completion: completion)
-            case let .failure(error):
-                completion(.failure(error))
-            }
-        }
+    /// - Parameter viewModel: A struct used to configure the view of the controller.
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
-    /// Retrieves the product from disk for the specified URL, if it exists.
-    ///
-    /// - Parameter url: The URL of the product on the network, used as a key to retrieve the existing product.
-    /// - Returns: The product from disk, if it exists.
-    func product(from url: URL) -> Product? {
-        return productPersistenceController.retrieveObject(forKey: url.absoluteString)
+    @available(*, unavailable, message: "init is unavailable, use init(viewModel:)")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+    }
+    
+    private func configureView() {
+        emptyStateLabel.text = viewModel.message
+        emptyStateButton.setTitle(viewModel.action.actionText, for: .normal)
+    }
+    
+    // MARK: - IBActions
+    @IBAction private func emptyStateButtonTapped(_ sender: Any) {
+        viewModel.action.actionHandler()
     }
 }
 ```
