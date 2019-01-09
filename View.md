@@ -13,7 +13,7 @@
 ### User Interaction Code Example
 
 ```swift
-/// Protocol to specify what must be implemented in order to conform to a LoginViewControllerDelegate.
+/// Protocol to specify what must be implemented in order to conform to a `LoginViewControllerDelegate`.
 protocol LoginViewControllerDelegate: class {
     func loginViewControllerPasswordRecoveryRequested(_ loginViewController: LoginViewController)
 }
