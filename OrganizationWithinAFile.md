@@ -1,6 +1,6 @@
 # Organization Within a File
 ### How do we organize files?
-A file should only contain one major type declaration. The idea behind this is to avoid declaring multiple classes, structs, or enums.
+A file should only contain one major type declaration. Other types are allowed in support of the main type that is represented by the file, which typically shares the name of the file, eg. `LoginViewController.swift` would have a major type of `LoginViewController`.
 
 #### Bad Code Example
 
