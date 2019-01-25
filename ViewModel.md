@@ -1,14 +1,13 @@
 # View Model
 ### Responsibility
-A *View Model* is a *View*'s model. It encapsulates the data needed to populate a particular kind of view and the presentation logic needed to transform the data into properties that can be rendered.
+A view model is (you guessed it!) a view's model. It has the data needed to populate a particular kind of view and the presentation logic needed to transform that data into properties that can be rendered.
 
 ### Key Considerations
-* *View Model*s define the single point of configuration for displayable properties.
-* Most of the properties can easily be mapped from similar properties on the *Model*.
-* *View Model*s contain the logic for transforming their own properties into displayable versions (e.g. a date object into localizable, human-readable text).
+* View models define the single point of configuration for displayable properties.
+* Most of the properties can easily be mapped from similar properties on the Model.
+* View models contain the logic for transforming their own properties into displayable versions (e.g. a date object into localizable, human-readable text).
 
-### Interaction Diagram  
-![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423586-afbc2640-6fc9-11e8-86ba-3a565de95dae.png)
+### Interaction Diagram  m![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423586-afbc2640-6fc9-11e8-86ba-3a565de95dae.png)
 
 ### Code Example
 ```swift
