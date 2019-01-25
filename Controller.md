@@ -1,15 +1,15 @@
 # Controller
 ### Responsibility
-*Controller*s are responsible for controlling the flow of the application execution. 
+Controllers are responsible for controlling the flow of the application execution. 
 
 ### Key Considerations
-* *Controller*s will often utilize other controllers to fulfill their responsibility.
+* Controllers often utilize other controllers to fulfill their responsibility.
 
 ### Interaction Diagram
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41422678-6d3caaa8-6fc7-11e8-9ee6-bd48d3343711.png)
 
 ### Common Controller Types
-Here are some of the common types of controllers you will use - [Common Controller Types](https://github.com/Lickability/swift-style-guide/blob/master/CommonControllerTypes.md)
+Here are some of the [common types of controllers](https://github.com/Lickability/swift-style-guide/blob/master/CommonControllerTypes.md) you will use.
 
 ### Code Example
 
