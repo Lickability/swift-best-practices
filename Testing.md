@@ -1,6 +1,6 @@
 # Testing
 ### Unit Testing
-Unit testing is used to verify that a single unit of work is behaving as expected
+Unit testing is used to verify that a single unit of work is behaving as expected.
 
 Example:
 ```swift
@@ -16,7 +16,7 @@ func testAddition() {
 ```
 
 ### UI Testing
-UI testing is used to ensure that the user interface that is displayed to the user is the one that is expected to be displayed
+UI testing is used to ensure that the interface that is displayed to the user is the one that is expected to be displayed.
 
 Example:
 ```swift
@@ -36,10 +36,10 @@ func testEmptyState() {
 ```
 
 ### Integration Testing
-Integration testing is used to verify work between multiple entities
+Integration testing is used to verify work between multiple entities.
 
 ### Contract Testing
-Contract testing is used to verify that API outside of your direct control is behaving as expected
+Contract testing is used to verify that an API outside of your direct control is behaving as expected.
 
 ### Blackbox Testing
-Blackbox testing is performed from the perspective of a user of the application, to verify that functionality the user expects to work, works
+Blackbox testing is performed from the perspective of a user of the application, to verify that functionality the user expects to work does, in fact, work.
