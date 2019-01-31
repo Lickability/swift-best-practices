@@ -4,13 +4,13 @@ Optionals are used when something is not known at the time of initialization, wh
 
 ### Key Considerations
 * Evaluate if you need an optional value, and avoid them if possible.
-* Do not make `Bool`s optional .
+* Do not make `Bool`s optional.
 	*  A tri-state `Bool` can be represented in a more structured way, such as an `enum` with three well-named `case`s.
 * Avoid making `Array`s optional.
 	* Only do this if it provides meaning beyond it just being empty.
 * System APIs may require us to use optional values since they return optional values.
-	* `URL`s created using `init?(string:)` are a common example .
-* `weak` properties must be optional by definition because they can become `nil`	.
+	* `URL`s created using `init?(string:)` are a common example.
+* `weak` properties must be optional by definition because they can become `nil`.
 
 ### Dealing with Optionals
 * Always handle unwrapping optionals safely.

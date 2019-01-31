@@ -3,7 +3,7 @@
 Custom operators should be avoided. Custom operators can reduce the readability of the code because there can be confusion around their functionality.
 
 ### Key Considerations
-* Overloading of operators should be used sparingly, e.g. protocol conformance such as `Equatable` or  when two objects are backed by a numeric value such as `Price`.
+* Overloading operators should be used sparingly, e.g. protocol conformance such as `Equatable` or  when two objects are backed by a numeric value such as `Price`.
 
 * Place the implementation of any custom operators in an extension on the type it operates on.
 

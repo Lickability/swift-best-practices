@@ -12,4 +12,4 @@ Views are responsible for rendering content and handling user interaction with t
 Controllers are the primary connection between models, view models, and views.
 
 ### View Model
-A view model is a view’s model. It has the data needed to populate a particular kind of view and the presentation logic needed to transform that data into properties that can be rendered.
+A view model is a view’s model. It encapsulates the data needed to populate a particular kind of view and the presentation logic needed to transform that data into properties that can be rendered.

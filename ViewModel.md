@@ -7,7 +7,7 @@ A view model is (you guessed it!) a view's model. It has the data needed to popu
 * Most of the properties can easily be mapped from similar properties on the Model.
 * View models contain the logic for transforming their own properties into displayable versions (e.g. a date object into localizable, human-readable text).
 
-### Interaction Diagram  m![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423586-afbc2640-6fc9-11e8-86ba-3a565de95dae.png)
+### Interaction Diagram  ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41423586-afbc2640-6fc9-11e8-86ba-3a565de95dae.png)
 
 ### Code Example
 ```swift
