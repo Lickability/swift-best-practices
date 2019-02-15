@@ -1,6 +1,6 @@
 # View Model
 ### Responsibility
-A view model is (you guessed it!) a view's model. It has the data needed to populate a particular kind of view and the presentation logic needed to transform that data into properties that can be rendered.
+A view model is a view's model. It has the data needed to populate a particular kind of view and the presentation logic needed to transform that data into properties that can be rendered.
 
 ### Key Considerations
 * View models define the single point of configuration for displayable properties.
