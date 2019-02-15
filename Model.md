@@ -1,9 +1,9 @@
 # Model
 ### Responsibility
-*Models* are the applications dynamic data structure, independent of the user interface. They directly manage the data and business logic of the application.
+Models are the application's dynamic data structure, independent of the user interface. They directly manage the data and business logic of the application.
 
 ### Key Considerations
-* *Models* can structure your data in a reliable form and prepare it based on the controllers instructions.
+* Models can structure your data in a reliable form and prepare it based on the controller's instructions.
 * They are **not** responsible for retrieving data from the persistence or network layers. 
 * Mutability on models should be avoided, opting instead to recreate the model when information changes. Mutable models can create race conditions when data is being simultaneously written and read across multiple threads or queues. 
 

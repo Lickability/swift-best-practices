@@ -1,16 +1,16 @@
 # Documentation and Comments
 ### How do we document?
-Anything with access level `internal` or higher requires documentation with the exception of declarations made for `protocol` conformance or `override`s in subclasses
+Anything with access level `internal` or higher requires documentation with the exception of declarations made for `protocol` conformance or `override`s in subclasses.
 
 ### Key Considerations
-* Use Xcode’s auto documentation in most cases (`option + command + /`)
-* Document private types if you want to add clarity but it is not required
+* Use Xcode’s auto documentation in most cases (`option + command + /`).
+* Document `private` types if you want to add clarity, but it is not required.
 
 ### Exceptions 
 
 **Enum**
-* Should have a single line of documentation at the top
-* Documentation on each case should be in the same format as functions where each associated value is documented as a parameter
+* Should have a single line of documentation at the top.
+* Documentation on each case should be in the same format as functions where each associated value is documented as a parameter.
 
 ```swift
 /// Represents all possible product category types.
@@ -32,7 +32,7 @@ enum Category {
 }
 ```
 	
-**Closure Signature Typealiases**
+**Closure Signature Type Aliases**
 * Use the same documentation format as functions with parameters and return values (where appropriate) when documenting `typealias`es for closures.
 
 ```swift
@@ -63,8 +63,8 @@ extension UIView {
 ```
 
 ### How do we comment?
-Use comments when trying to explain edge cases where code may require complexity or unfamiliar patterns
+Use comments when trying to explain edge cases where code may require complexity or unfamiliar patterns.
 
 ### Key Considerations
-* Focus on making your code as easy to understand as possible with clear variable names
-* Start comments with double slashes followed by a space e.g. `// Here is a comment`
+* Focus on making your code as easy to understand as possible with clear variable names.
+* Start comments with double slashes followed by a space e.g. `// Here is a comment`.

@@ -1,6 +1,6 @@
 # Assets
 ### When do we use them?
-We use asset catalogs to manage our application's assets
+We use asset catalogs to manage our application's assets.
 
 ### Key Considerations
-* Try to keep asset catalogs a reasonable size by breaking them into additional catalogs based on feature
+* Try to keep asset catalogs a reasonable size by breaking them into additional catalogs based on feature.

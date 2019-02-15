@@ -1,14 +1,14 @@
 # View
 ### Responsibility
-*View*s are responsible for rendering content and handling user interaction with that content.
+Views are responsible for rendering content and handling user interaction with that content.
 
 ### Key Considerations
-* *View*s are responsible for the styling and layout of user interface components.
-* *Views* are a visual representation of their models.
-* Custom *View*s that are composed of other views define an interface for configuring display properties of their contents through their [*View Model*](https://github.com/Lickability/swift-style-guide/blob/master/ViewModel.md).
-* For some views, user interaction is communicated to *Controller*s through delegation or closures.
-* For views that inherit from *UIControl* such as (*UISwitch*, *UIButton*, *UISlider*, etc...), user interaction is communicated via a [Target-Action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3) mechanism to notify your app when an interaction has taken place.
-* The [Target-Action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3) mechanism can be combined with [delegation](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Delegation.html) or [closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) to delegate the responsibility of handling the action to another controller. See below for a code example.
+* Views are responsible for the styling and layout of user interface components.
+* Views are a visual representation of their models.
+* Custom views that are composed of other views define an interface for configuring display properties of their contents through their [view model](https://github.com/Lickability/swift-style-guide/blob/master/ViewModel.md).
+* For some views, user interaction is communicated to controllers through delegation or closures.
+* For views that inherit from `UIControl` (such as `UISwitch`, `UIButton`, `UISlider`, etc...), user interaction is communicated via a [target-action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3) mechanism to notify your app when an interaction has taken place.
+* The [target-action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3) mechanism can be combined with [delegation](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Delegation.html) or [closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) to delegate the responsibility of handling the action to another controller. See below for a code example.
 
 ### User Interaction Code Example
 
@@ -57,7 +57,7 @@ final class LoginViewController: UIViewController {
 
 ### Interface Builder
 
-*Views* designed in the Interface Builder editor are referenced in code via a *IBOutlet* or *IBAction*. For more information, checkout [How we use Interface Builder](InterfaceBuilder.md).
+Views designed in the Interface Builder editor are referenced in code via a `IBOutlet` or `IBAction`. For more information, check out [How we use Interface Builder](InterfaceBuilder.md).
 
 ### Code Example
 

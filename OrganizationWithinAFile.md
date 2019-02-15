@@ -1,10 +1,10 @@
 # Organization Within a File
 ### How do we organize files?
-A file should only contain one major type declaration. Other types are allowed in support of the main type that is represented by the file, which typically shares the name of the file, eg. `LoginViewController.swift` would have a major type of `LoginViewController`.
+A file should only contain one major type declaration. Other types are allowed in support of the main type that is represented by the file, which typically shares the name of the file, e.g. `LoginViewController.swift` would have a major type of `LoginViewController`.
 
 #### Bad Code Example
 
-In the example below, we have declared multiple top level enums and classes within one file. The class declarations should be split across multiple files and the enums should be encapsulated within their respestive classes when it makes sense.
+In the example below, we have declared multiple top level enums and classes within one file. The class declarations should be split across multiple files and the enums should be encapsulated within their respective classes when it makes sense.
 ```swift
 /// An enum to track whether or not the user is logged in or not
 enum AuthState {
@@ -28,7 +28,7 @@ class SignupViewController: UIViewController {
 ```
 
 #### Good Code Example
-In the example below, the file has only 1 major type declaration. The protocol and extension are supporting the major type of `LoginViewController` and therefore allowed to be in this file.
+In the example below, the file has only one major type declaration. The protocol and extension are supporting the major type of `LoginViewController` and therefore allowed to be in this file.
 ```swift
 protocol LoginViewControllerDelegate {
     /// some implementation
@@ -56,20 +56,19 @@ extension LoginViewController {
 		* Public Properties
 		* Private Properties
 	 
-### How do we use MARKs?
-Group and separate code using `MARK`s. The grouping order for each section of properties, initializers, and functions should be:
+### How do we use MARK?
+Group and separate code using `MARK`. The grouping order for each section of properties, initializers, and functions should be:
 * Overridden declarations
 * Declarations for protocol conformance
 * Declarations being introduced in the major type of the file
 
 ### Key Considerations
-* We only use `MARK`s when a file has overrides or conformances
-* `MARK`s separate where things were original declared
-* Always use `MARK: -` for grouping based on type
-	* The text should be the type you are grouping by
-* Use `MARK:` for other groupings inside of `MARK: -` 
-	* e.g. `MARK: Helper Functions`
-* When adding a `MARK` for an extension, ensure the `MARK` is inside the extension
+* We only use `MARK` when a file has overrides or conformances.
+* `MARK` separates where things were original declared.
+* Always use `MARK: -` for grouping based on type.
+	* The text should be the type you are grouping by.
+* Use `MARK:` for other groupings inside of `MARK: -`, e.g. `MARK: Helper Functions`.
+* When adding a `MARK` for an extension, make sure it is inside the extension.
 
 ### Final Code Example
 ```swift

@@ -1,6 +1,6 @@
 # Common Controller Types
 ### Parser
-Transforms structured data into model types
+Transforms structured data into model types.
 
 ```swift
 /// Responsible for parsing a CocoaPods acknowledgements plist file.
@@ -45,7 +45,7 @@ open class AcknowParser {
 ```
 
 ### Network Controller
-Handles sending of network requests and receiving response data
+Handles sending network requests and receiving response data.
 
 ```swift
 import Decodable
@@ -155,7 +155,7 @@ extension NetworkController {
 ```
 
 ### Persistence Controller
-Reads and writes models from / to the data layer
+Reads and writes models to / from the data layer.
 
 ```swift
 /// Manages interaction with objects stored on and retrieved from disk.
@@ -292,7 +292,7 @@ final class PersistenceController {
 ```
 
 ### Translator
-Handles complex conversions of models to view models
+Handles complex conversions of models to view models.
 
 ```swift
 /// Translator responsible for translating `Team` models into `ScoreListTableViewCell.ViewModel` instances.
@@ -315,7 +315,7 @@ final class TeamToScoreListTableViewCellViewModelTranslator {
 ```
 
 ### View Controller
-Manages a view hierarchy and UI logic for your app and coordinates with other controllers to keep it up to date
+Manages a view hierarchy and UI logic for your app and coordinates with other controllers to keep it up to date.
 
 ```swift
 /// A `UIViewController` subclass that represents an empty state with an action button.
@@ -368,7 +368,7 @@ final class EmptyStateViewController: UIViewController {
 ```
 
 ### Updater
-Makes use of network and persistence controllers to fetch and persist data from the network 
+Makes use of network and persistence controllers to fetch and persist data from the network. 
 
 ```swift
 /// Fetches and updates issue data from the network.
@@ -411,7 +411,7 @@ final class MagazineIssueUpdater {
 ```
 
 ### DataSource
-Manages collections of data to power UI related collections
+Manages collections of data to power UI-related collections.
 
 ```swift
 /// A delegate that communicates information about the data source to its delegate.
