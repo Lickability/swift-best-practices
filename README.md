@@ -1,5 +1,11 @@
 # Lickability Development Best Practices
 
+Code is written for humans. I’m not the first to say that, and won’t be the last. What you write will eventually be compiled away to something unintelligible, so how you choose to write code isn’t for the computer’s benefit. It’s for yourself, both now and later. It’s for any people working on a team with you. And it’s for anyone that stumbles upon your code after you’re long gone.
+
+In order to understand our code better, Lickability employs consistent practices, and to do that we have a defined structure and style to the way we write code. This is intended to be a living repository that will be updated as the Swift language and our experience changes.
+
+If you want to use this, great! If you want to fork it and make changes go ahead. We won’t be accepting issues or pull requests into the repository, as this is not intended to an open source project. This is simply, how we do things.
+
 ## Architecture Info
 
 [Architecture Diagram](https://github.com/Lickability/swift-style-guide/blob/master/ArchitectureDiagram.md)
