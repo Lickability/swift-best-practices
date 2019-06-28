@@ -39,3 +39,6 @@ If you want to use this, great! If you want to fork it and make changes go ahead
 ## Style
 
 We use [SwiftLint](https://github.com/realm/SwiftLint) for code linting. We avoid making style comments on pull requests wherever possible, instead allowing the linter to catch them while developing. The fully documented `.yml` file we use is located [here](https://github.com/Lickability/swift-style-guide/blob/master/.swiftlint.yml).
+
+## SwiftUI / Combine
+The majority of this document was written prior to the introduction of SwiftUI and Combine. As we become more familiar with these technologies and use them in our own projects, we expect them to reshape the best practices as it exists today.
