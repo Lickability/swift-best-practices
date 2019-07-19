@@ -91,7 +91,7 @@ disabled_rules: # rule identifiers to exclude from running
   # Rationale: Arbitrary restriction.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#multiline-parameters-brackets
   - multiline_parameters_brackets
-  
+
   # Rationale: Arbitrary restriction
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#nesting
   - nesting
@@ -139,7 +139,7 @@ disabled_rules: # rule identifiers to exclude from running
   # Rationale: Do not require a deinit function, as it is not always necessary.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#required-deinit
   - required_deinit
-  
+
   # Rationale: Provides no value
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#sorted-imports
   - sorted_imports
@@ -179,14 +179,26 @@ disabled_rules: # rule identifiers to exclude from running
   # Rationale: Allows for more readable code when defining new properties or functions on types.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#vertical-whitespace-after-opening-braces
   - vertical_whitespace_opening_braces
-  
+
   # Rationale: Unnecessary whitespace.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#vertical-whitespace-between-cases
   - vertical_whitespace_between_cases
-  
+
   # Rationale: Allow using XCTest functions as defined by the framework.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#xctest-specific-matcher
   - xct_specific_matcher
+
+  # Rationale: Arbitrary restriction. The default bundle will be suitable for most projects.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#nslocalizedstring-require-bundle
+  - nslocalizedstring_require_bundle
+  
+  # Rationale: The current rule set does not allow for enforcement of our preferred ordering (namely, private classes at the bottom of the file).
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#file-types-order
+  - file_types_order
+  
+  # Rationale: The benefit of this rule is a minor performance improvement, at the potential cost of legibility. Leave up to the developer's discrection.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#reduce-into
+  - reduce_into
   
 opt_in_rules: # some rules are only opt-in
 
@@ -253,11 +265,11 @@ opt_in_rules: # some rules are only opt-in
   # Rationale: A nil bool is a tri-state variable which can be modeled more clearly
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#discouraged-optional-boolean
   - discouraged_optional_boolean
-  
+
   # Rationale: Imports are not required more than once.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#duplicate-imports
   - duplicate_imports
-  
+
   # Rationale: Prevents coder error
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#dynamic-inline
   - dynamic_inline
@@ -541,15 +553,15 @@ opt_in_rules: # some rules are only opt-in
   # Rationale: Provides consistency in coding style
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#vertical-whitespace-before-closing-braces
   - vertical_whitespace_closing_braces
-  
+
   # Rationale: Provides consistency in coding style and follows modern practices of the language
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#void-return
   - void_return
-  
+
   # Rationale: Avoids using weak when it has no effect.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#weak-computed-property
   - weak_computed_property
-  
+
   # Rationale: Prevents retain cycles and coder error
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#weak-delegate
   - weak_delegate
@@ -565,6 +577,34 @@ opt_in_rules: # some rules are only opt-in
   # Rationale: Encourages documentation
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#todo
   - custom_todo
+  
+  # Rationale: Provides consistency in coding style.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#reduce-boolean
+  - reduce_boolean
+  
+  # Rationale: == is not used for NSObject comparison, and could lead to confusion.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#nsobject-prefer-isequal
+  - nsobject_prefer_isequal
+  
+  # Rationale: Provides consistency of ordering within a type.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#type-contents-order
+  - type_contents_order
+  
+  # Rationale: Provides consistency in coding style.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#unused-capture-list
+  - unused_capture_list
+  
+  # Rationale: Prevents issues with using unowned.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#unowned-variable-capture
+  - unowned_variable_capture
+  
+  # Rationale: Ensures all enums can be switched upon.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#duplicate-enum-cases
+  - duplicate_enum_cases
+  
+  # Rationale: Provides consistency in coding style.
+  # https://github.com/realm/SwiftLint/blob/master/Rules.md#legacy-multiple
+  - legacy_multiple  
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
@@ -582,6 +622,17 @@ file_header:
 
 attributes:
   always_on_same_line: ["@IBAction", "@NSManaged", "@discardableResult", "@escaping", "@objc"]
+
+type_contents_order:
+  order:
+    - case
+    - associated_type
+    - type_alias
+    - subtype
+    - ib_outlet
+    - ib_inspectable
+    - [type_property, instance_property]
+    - [initializer, type_method, view_life_cycle_method, subscript, other_method, ib_action]
 
 custom_rules:
   force_https:
