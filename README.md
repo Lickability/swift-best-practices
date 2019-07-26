@@ -8,7 +8,7 @@ If you want to use this, great! If you want to fork it and make changes, go ahea
 
 ## Architecture Info
 
-[Architecture DDevelopmentiagram](https://github.com/Lickability/swift-style-guide/blob/master/ArchitectureDiagram.md)
+[Architecture Development Diagram](https://github.com/Lickability/swift-style-guide/blob/master/ArchitectureDiagram.md)
 
 * **M** - [Model](https://github.com/Lickability/swift-style-guide/blob/master/Model.md)
 * **V** - [View](https://github.com/Lickability/swift-style-guide/blob/master/View.md)
