@@ -1,10 +1,10 @@
 # Lickability Swift Best Practices Guide
 
-Code is written for humans. I’m not the first to say that, and won’t be the last. What you write will eventually be compiled away into something unintelligible, so how you choose to write code isn’t for the computer’s benefit. It’s for yourself, both now and later. It’s for any people working on a team with you. And it’s for anyone that stumbles upon your code after you’re long gone.
+Code is written for humans. I’m not the first to say that, and won’t be the last. What you write will eventually be compiled away into something unintelligible, so how you choose to write code isn’t for the computer’s benefit. It’s for yourself, both now and later. It’s for any people working on a team with you. And it’s for anyone that stumbles upon your code after you’re gone.
 
-In order to understand our code better, Lickability employs consistent practices—and to do that, we have a defined structure and style for the way we write code. This stylde guide is intended to be a living repository that will be updated as the Swift language and our experience changes. You can click through the links below to read individual sections, or you can read the full document [here](https://github.com/Lickability/swift-best-practices/blob/master/CombinedDocument.md).
+In order to understand our code better, Lickability employs consistent practices—and to do that, we have a defined structure and style for the way we write code. This stylde guide is intended to be a living repository that will be updated as the Swift language and our experience evolves. You can click through the links below to read individual sections, or you can read the full document [here](https://github.com/Lickability/swift-best-practices/blob/master/CombinedDocument.md).
 
-If you want to use this, great! If you want to fork it and make changes, go ahead. We won’t be accepting issues or pull requests into the repository, since this is not intended to be an open source project—it's simply a guide to how we do things. 
+If you want to use this, great! If you want to fork it and make changes, go ahead. We won't be accepting issues or pull requests at this time, but we hope that you'll find it our approach to writing software interesting-and if there are aspects that you'd love to chat about, let us know!
 
 ## Architecture Info
 
