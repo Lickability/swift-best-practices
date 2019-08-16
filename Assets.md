@@ -1,6 +1,6 @@
 # Assets
 ### How do we use them?
-We use asset catalogs to organize our application’s images and colors.
+We use asset catalogs to organize our application’s assets.
 
 ### Key Considerations
 * Organize assets using folders inside asset catalogs.
