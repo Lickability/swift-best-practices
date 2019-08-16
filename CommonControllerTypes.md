@@ -284,7 +284,7 @@ final class TableViewDataSource<CollectionType: Collection>: NSObject, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row < collection.count, indexPath.row >= 0 else {
+        guard collection.indices.contains(indexPath.row) else {
             logAssertionFailure(message: "The index path \(indexPath) provided is out of range. This is unexpected.`")
             return UITableViewCell()
         }
