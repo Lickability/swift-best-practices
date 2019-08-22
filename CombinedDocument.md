@@ -974,7 +974,6 @@ We use the localization tools and APIs provided by Apple, e.g. `NSLocalizedStrin
 ### Key Considerations
 * Use `UIStackView`s instead of explicit constraints between siblings whenever possible, unless there are noticeable performance issues.
 * Each nib should have a single top level item.
-    
     * Separate `UIView` subclasses designed in Interface Builder into their own nib files.
 * Use `IBDesignable` and `IBInspectable` for common design properties, e.g. specifying a view’s corner radius or giving it a border.
 * When setting colors in Interface Builder, use the ones defined in asset catalogs to ensure that all use of common colors is updated from a single source.
