@@ -85,7 +85,7 @@ protocol Persister {
 }
 
 /// Manages interaction with objects stored on and retrieved from disk.
-final class PersistenceController {
+final class PersistenceController: Persister {
     
     // MARK: - PersistenceController
     
