@@ -30,6 +30,7 @@ If you want to use this, great! If you want to fork it and make changes, go ahea
 * [Custom Operators](https://github.com/Lickability/swift-style-guide/blob/master/CustomOperators.md)
 * [Default Parameters](https://github.com/Lickability/swift-style-guide/blob/master/DefaultParameters.md)
 * [Localization](https://github.com/Lickability/swift-style-guide/blob/master/Localization.md)
+* [Naming](https://github.com/Lickability/swift-style-guide/blob/master/Naming.md)
 * [Interface Builder](https://github.com/Lickability/swift-style-guide/blob/master/InterfaceBuilder.md)
 * [Object Communication](https://github.com/Lickability/swift-style-guide/blob/master/Object%20Communication.md)
 * [Optionals](https://github.com/Lickability/swift-style-guide/blob/master/Optionals.md)
