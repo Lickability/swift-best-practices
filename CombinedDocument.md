@@ -967,6 +967,32 @@ We use the localization tools and APIs provided by Apple, e.g. `NSLocalizedStrin
 * When formatting numbers and dates for display, use the "localized" API variants, such as [`setLocalizedDateFormatFromTemplate(_:)`](https://developer.apple.com/documentation/foundation/dateformatter/1417087-setlocalizeddateformatfromtempla) and [`localizedString(from:dateStyle:timeStyle:)`](https://developer.apple.com/documentation/foundation/dateformatter/1415241-localizedstring).
 * Consider using[`String.variantFittingPresentationWidth(_:)`](https://developer.apple.com/documentation/foundation/nsstring/1413104-variantfittingpresentationwidth) when creating adaptive width `String`s instead of using conditional logic.
 
+# Naming
+## General Guidelines
+Follow the official [Swift API Design Guidelines section on naming](https://swift.org/documentation/api-design-guidelines/#naming).
+
+## UI Components
+When naming types and instances of views, view controllers, layers, and other components of the user interface, include type information in the name of the type and instance to disambiguate from non-user interface data at usage sites.
+
+### Examples
+```swift
+let name: UITextField // 🛑
+name.delegate = self // Unclear at usage.
+
+let nameTextField: UITextField // ✅
+nameTextField.delegate = self // Clear at usage.
+```
+
+```swift
+final class Settings: UIViewController { } // 🛑
+let settings = Settings() // 🛑
+show(settings, sender: self) // Unclear at usage.
+
+final class SettingsViewController: UIViewController { } // ✅
+let settingsViewController = SettingsViewController() // ✅
+show(settingsViewController, sender: self) // Clear at usage.
+```
+
 # Interface Builder
 ### How do we use Interface Builder?
 * We use Interface Builder in lieu of layout code to reduce the amount of code in views and view controllers
