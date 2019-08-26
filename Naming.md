@@ -3,7 +3,7 @@
 Follow the official [Swift API Design Guidelines section on naming](https://swift.org/documentation/api-design-guidelines/#naming).
 
 ## UI Components
-When naming types and instances of views, view controllers, layers, and other components of the user interface, include type information to disambiguate from non-user interface data at usage sites.
+When naming types and instances of views, view controllers, layers, and other components of the user interface, include type information in the name of the type and instance to disambiguate from non-user interface data at usage sites.
 
 ### Examples
 ```swift
