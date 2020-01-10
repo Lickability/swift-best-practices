@@ -5,6 +5,7 @@ Anything with access level `internal` or higher requires documentation with the 
 ### Key Considerations
 * Use Xcode’s auto documentation in most cases (`option + command + /`).
 * Document `private` types if you want to add clarity, but it is not required.
+* The order in which parameters appear in documentation should match the order in which they appear in the corresponding API.
 
 ### Exceptions 
 
@@ -26,18 +27,16 @@ enum Category {
     case merchandise
     
     /// An item category that falls outside of the other cases.
-    ///
     /// - Parameter description: A string description of what that category is.
     case other(description: String)
 }
 ```
 	
 **Closure Signature Type Aliases**
-* Use the same documentation format as functions with parameters and return values (where appropriate) when documenting `typealias`es for closures.
+* Use the same documentation format as functions with parameters when documenting `typealias`es for closures.
 
 ```swift
 /// Signature for a closure that is called when a button is tapped.
-///
 /// - Parameter button: The button that was tapped.
 typealias ButtonTapHandler = (_ button: UIButton) -> Void
 ```
@@ -49,7 +48,6 @@ typealias ButtonTapHandler = (_ button: UIButton) -> Void
 extension UIView {
     
     /// The receiver’s `layer` corner radius.
-    ///
     /// - SeeAlso:
     /// [CALayer.cornerRadius](https://developer.apple.com/documentation/quartzcore/calayer/1410818-cornerradius)
     @IBInspectable var cornerRadius: CGFloat {
