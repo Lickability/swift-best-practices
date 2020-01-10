@@ -9,8 +9,7 @@ We use the localization tools and APIs provided by Apple, e.g. `NSLocalizedStrin
     * Examples: 
     ```swift
     NSLocalizedString("%d comments", comment: "Label displayed at the top of a thread. Parameter is the number of comments in the thread.")
-    ```
-    ```swift
+    
     NSLocalizedString("Welcome to %@, %@!", comment: "Message shown at the top of the home screen after logging in. First parameter is the app name. Second parameter is the logged in user’s first name.")
     ```
 * When formatting numbers and dates for display, use the “localized” API variants, such as [`setLocalizedDateFormatFromTemplate(_:)`](https://developer.apple.com/documentation/foundation/dateformatter/1417087-setlocalizeddateformatfromtempla) and [`localizedString(from:dateStyle:timeStyle:)`](https://developer.apple.com/documentation/foundation/dateformatter/1415241-localizedstring).
