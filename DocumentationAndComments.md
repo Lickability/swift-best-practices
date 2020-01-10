@@ -33,7 +33,7 @@ enum Category {
 ```
 	
 **Closure Signature Type Aliases**
-* Use the same documentation format as functions with parameters and return values (where appropriate) when documenting `typealias`es for closures.
+* Use the same documentation format as functions with parameters when documenting `typealias`es for closures.
 
 ```swift
 /// Signature for a closure that is called when a button is tapped.
