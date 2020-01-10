@@ -5,6 +5,7 @@ Anything with access level `internal` or higher requires documentation with the 
 ### Key Considerations
 * Use Xcode’s auto documentation in most cases (`option + command + /`).
 * Document `private` types if you want to add clarity, but it is not required.
+* The order in which parameters appear in documentation should match the order in which they appear in the corresponding API.
 
 ### Exceptions 
 
