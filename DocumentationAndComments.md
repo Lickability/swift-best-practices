@@ -26,7 +26,6 @@ enum Category {
     case merchandise
     
     /// An item category that falls outside of the other cases.
-    ///
     /// - Parameter description: A string description of what that category is.
     case other(description: String)
 }
@@ -37,7 +36,6 @@ enum Category {
 
 ```swift
 /// Signature for a closure that is called when a button is tapped.
-///
 /// - Parameter button: The button that was tapped.
 typealias ButtonTapHandler = (_ button: UIButton) -> Void
 ```
@@ -49,7 +47,6 @@ typealias ButtonTapHandler = (_ button: UIButton) -> Void
 extension UIView {
     
     /// The receiver’s `layer` corner radius.
-    ///
     /// - SeeAlso:
     /// [CALayer.cornerRadius](https://developer.apple.com/documentation/quartzcore/calayer/1410818-cornerradius)
     @IBInspectable var cornerRadius: CGFloat {
