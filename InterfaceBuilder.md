@@ -26,7 +26,7 @@
             return instantiateViewFromNib(defaultNibName(), bundle: bundle)
         }
     }
-    ```
+    ```	
 * When defining a width or height constraint in relation to the opposite dimension, use the "Aspect Ratio" option in Interface Builder (found in the "Add New Constraints" menu, or in the popup that appears when dragging a width or height constraint).
     * The Multiplier value for the constraint should always be defined as a ratio (e.g. `4:3`), and not a decimal value (e.g. `1.333`).
     * The constraint’s first item should represent the dimension that effectively determines the other. For example, if an image view is full-width, and the height is defined as half of the width, the first item should be the image view’s width, and the second item should be its height, with a ratio of `2:1`:
