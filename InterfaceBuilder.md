@@ -32,4 +32,4 @@
     * The constraint’s first item should represent the dimension that effectively determines the other. For example, if an image view is full-width, and the height is defined as half of the width, the first item should be the image view’s width, and the second item should be its height, with a ratio of `2:1`:
     <img width="739" alt="aspect-ratio-constraint" src="https://user-images.githubusercontent.com/7883805/74057707-8013a980-49b2-11ea-8abc-5f31d011b5ab.png" align="middle">
     
-    * If neither dimension takes precedence in determining the other when using an aspect ratio constraint (e.g. a `60x60` view), specify the width as the constraint’s first item and the height as its second as a consistent fallback.
+    * If neither dimension takes precedence in determining the other dimension when using an aspect ratio constraint (e.g. a `60x60` view), use the width as the constraint’s first item and the height as its second item.
