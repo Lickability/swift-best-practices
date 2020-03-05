@@ -173,6 +173,12 @@ final class ProductCell: UITableViewCell {
     }
 }
 ```
+* When defining a width or height constraint in relation to the opposite dimension, use the “Aspect Ratio” option in Interface Builder (found in the “Add New Constraints” menu, or in the popup that appears when dragging a width or height constraint).
+    * The Multiplier value for the constraint should always be defined as a ratio (e.g. `4:3`), and not a decimal value (e.g. `1.333`).
+    * The constraint’s first item should represent the dimension that effectively determines the other. For example, if an image view is full-width, and the height is defined as half of the width, the first item should be the image view’s width, and the second item should be its height, with a ratio of `2:1`:
+    <img width="739" alt="aspect-ratio-constraint" src="https://user-images.githubusercontent.com/7883805/74057707-8013a980-49b2-11ea-8abc-5f31d011b5ab.png" align="middle">
+    
+    * If neither dimension takes precedence in determining the other dimension when using an aspect ratio constraint (e.g. a `60x60` view), use the width as the constraint’s first item and the height as its second item.
 
 # Controller
 ### Responsibility
@@ -622,6 +628,7 @@ Anything with access level `internal` or higher requires documentation with the 
 ### Key Considerations
 * Use Xcode’s auto documentation in most cases (`option + command + /`).
 * Document `private` types if you want to add clarity, but it is not required.
+* The order in which parameters appear in documentation should match the order in which they appear in the corresponding API.
 
 ### Exceptions
 
@@ -643,18 +650,16 @@ enum Category {
     case merchandise
 
     /// An item category that falls outside of the other cases.
-    ///
     /// - Parameter description: A string description of what that category is.
     case other(description: String)
 }
 ```
 
 **Closure Signature Type Aliases**
-* Use the same documentation format as functions with parameters and return values (where appropriate) when documenting `typealias`es for closures.
+* Use the same documentation format as functions with parameters when documenting `typealias`es for closures.
 
 ```swift
 /// Signature for a closure that is called when a button is tapped.
-///
 /// - Parameter button: The button that was tapped.
 typealias ButtonTapHandler = (_ button: UIButton) -> Void
 ```
@@ -666,7 +671,6 @@ typealias ButtonTapHandler = (_ button: UIButton) -> Void
 extension UIView {
 
     /// The receiver’s `layer` corner radius.
-    ///
     /// - SeeAlso:
     /// [CALayer.cornerRadius](https://developer.apple.com/documentation/quartzcore/calayer/1410818-cornerradius)
     @IBInspectable var cornerRadius: CGFloat {
@@ -964,8 +968,16 @@ We use the localization tools and APIs provided by Apple, e.g. `NSLocalizedStrin
 
 ### Key Considerations
 * All user-facing text should be made localizable with the [`NSLocalizedString`](https://developer.apple.com/documentation/foundation/nslocalizedstring) family of APIs with corresponding [`Localizable.stringsdict`](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/StringsdictFileFormat/StringsdictFileFormat.html) files for plurals.
-* When formatting numbers and dates for display, use the "localized" API variants, such as [`setLocalizedDateFormatFromTemplate(_:)`](https://developer.apple.com/documentation/foundation/dateformatter/1417087-setlocalizeddateformatfromtempla) and [`localizedString(from:dateStyle:timeStyle:)`](https://developer.apple.com/documentation/foundation/dateformatter/1415241-localizedstring).
-* Consider using[`String.variantFittingPresentationWidth(_:)`](https://developer.apple.com/documentation/foundation/nsstring/1413104-variantfittingpresentationwidth) when creating adaptive width `String`s instead of using conditional logic.
+* The `key` parameter of [`NSLocalizedString(_:comment:)`](https://developer.apple.com/documentation/foundation/1418095-nslocalizedstring) should be the text as it appears in English. Do not use other constants or identifiers, like `"button.log-in.forgot-password"`. 
+* Always fill out the `comment` parameter of [`NSLocalizedString(_:comment:)`](https://developer.apple.com/documentation/foundation/1418095-nslocalizedstring) with a detailed description of the text with enough information such that a translator could understand the text without further context. Add detailed descriptions of positional parameters, and when multiple parameters are present, refer to them in the text based on their position in the English translation.
+    * Examples: 
+    ```swift
+    NSLocalizedString("%d comments", comment: "Label displayed at the top of a thread. Parameter is the number of comments in the thread.")
+    
+    NSLocalizedString("Welcome to %@, %@!", comment: "Message shown at the top of the home screen after logging in. First parameter is the app name. Second parameter is the logged in user’s first name.")
+    ```
+* When formatting numbers and dates for display, use the “localized” API variants, such as [`setLocalizedDateFormatFromTemplate(_:)`](https://developer.apple.com/documentation/foundation/dateformatter/1417087-setlocalizeddateformatfromtempla) and [`localizedString(from:dateStyle:timeStyle:)`](https://developer.apple.com/documentation/foundation/dateformatter/1415241-localizedstring).
+* Consider using [`String.variantFittingPresentationWidth(_:)`](https://developer.apple.com/documentation/foundation/nsstring/1413104-variantfittingpresentationwidth) when creating adaptive width `String`s instead of using conditional logic.
 
 # Naming
 ## General Guidelines
