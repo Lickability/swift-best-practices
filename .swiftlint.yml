@@ -660,7 +660,7 @@ type_contents_order:
     - ib_outlet
     - ib_inspectable
     - [type_property, instance_property]
-    - [initializer, type_method, view_life_cycle_method, subscript, other_method, ib_action]
+    - [initializer, deinitializer, type_method, view_life_cycle_method, subscript, other_method, ib_action]
 
 custom_rules:
   force_https:
