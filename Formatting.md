@@ -1,6 +1,6 @@
 # Formatting
 ### How do we format code?
-Most formatting-related guidelines are enforced by [SwiftLint](https://github.com/realm/SwiftLint) using [our documented configuration file](https://github.com/Lickability/swift-style-guide/blob/master/.swiftlint.yml). Xcode’s default behaviors and preferences are preferred for considerations not covered by Swiftlint rules.
+Most formatting-related guidelines are enforced by [SwiftLint](https://github.com/realm/SwiftLint) using [our documented configuration file](https://github.com/Lickability/swift-best-practices/blob/master/.swiftlint.yml). Xcode’s default behaviors and preferences are preferred for considerations not covered by Swiftlint rules.
 
 ### Key Considerations
 * Resolve any added Swiftlint warnings prior to opening a pull request with your changes.
