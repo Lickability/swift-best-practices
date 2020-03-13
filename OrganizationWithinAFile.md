@@ -69,6 +69,9 @@ extension LoginViewController {
 	    * Internal
 	    * Private
 	* Extension Protocol Conformances
+    
+* Initializers, when implemented, should be the first declaration(s) in each group (inherited, protocol, open, etc.) of functions.
+* `deinit`, when implemented, should come directly after the last initializer. If no initializers exist, `deinit` should come before all other function declarations.
 
 ### How do we use MARK?
 Group and separate code using `MARK`. The grouping order for each section of properties and functions should be:
