@@ -657,9 +657,7 @@ type_contents_order:
     - associated_type
     - type_alias
     - subtype
-    - ib_outlet
-    - ib_inspectable
-    - [type_property, instance_property]
+    - [type_property, instance_property, ib_outlet, ib_inspectable]
     - [initializer, deinitializer, type_method, view_life_cycle_method, subscript, other_method, ib_action]
 
 custom_rules:
