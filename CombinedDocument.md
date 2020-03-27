@@ -800,7 +800,7 @@ extension LoginViewController {
 	* Import statements
 	* Delegate protocols that are associated only with the major type declaration of the file
 	* The major type declaration of the file
-	* Inner type declarations
+	* Nested type declarations
 	* Properties
 	    * Inherited
 	    * Protocol
@@ -820,6 +820,7 @@ extension LoginViewController {
 
 * Initializers, when implemented, should be the first declaration(s) in each group (inherited, protocol, open, etc.) of functions.
 * `deinit`, when implemented, should come directly after the last initializer. If no initializers exist, `deinit` should come before all other function declarations.
+* For `Codable` conformance, [it may be necessary to implement the special nested type `CodingKeys`, which conforms to `CodingKey`](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types#see-also). When present, this nested type should be declared after all other nested types. Since `CodingKeys` and `CodingKey` are not documented as part of the `Codable` protocols, no `MARK` is necessary.
 
 ### How do we use MARK?
 Group and separate code using `MARK`. The grouping order for each section of properties and functions should be:
