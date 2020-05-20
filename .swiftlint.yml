@@ -649,7 +649,7 @@ file_header:
                     \/\/
 
 attributes:
-  always_on_same_line: ["@IBAction", "@NSManaged", "@discardableResult", "@escaping", "@objc"]
+  always_on_same_line: ["@IBAction", "@IBSegueAction", "@NSManaged", "@discardableResult", "@escaping", "@objc"]
 
 type_contents_order:
   order:
