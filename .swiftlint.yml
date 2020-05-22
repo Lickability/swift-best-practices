@@ -669,7 +669,7 @@ custom_rules:
     severity: warning
   custom_todo:
     name: "TODO Violation"
-    regex: "(TODO).(?!.*(https&)).(?!.*issues)"
+    regex: "(TODO).(?!.*(https&)).(?!.*issue)"
     match_kinds: comment
-    message: "TODOs must include a link to the github issue."
+    message: "TODOs must include a link to the issue."
     severity: warning
