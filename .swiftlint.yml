@@ -56,7 +56,7 @@ disabled_rules: # rule identifiers to exclude from running
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#identifier-name
   - identifier_name
 
-  # Rationale: Being consise and not fighting the language
+  # Rationale: Being concise and not fighting the language. We allow engineers to decide when and how to use implicit returns based on their best judgement.
   # https://github.com/realm/SwiftLint/blob/master/Rules.md#implicit-return
   - implicit_return
 
