@@ -36,6 +36,7 @@ If you want to use this, great! If you want to fork it and make changes, go ahea
 * [Optionals](https://github.com/Lickability/swift-style-guide/blob/master/Optionals.md)
 * [Protocols](https://github.com/Lickability/swift-style-guide/blob/master/Protocols.md)
 * [Testing](https://github.com/Lickability/swift-style-guide/blob/master/Testing.md)
+* [Zero Usage](https://github.com/Lickability/swift-style-guide/blob/master/Zero%20Usage.md)
 
 ## Style
 
