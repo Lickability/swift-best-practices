@@ -1047,7 +1047,7 @@ show(settingsViewController, sender: self) // Clear at usage.
 * Use `UIStackView`s instead of explicit constraints between siblings whenever possible, unless there are noticeable performance issues.
 * Each nib should have a single top level item.
     * Separate `UIView` subclasses designed in Interface Builder into their own nib files.
-* Use `IBInspectable` for common design properties, e.g. specifying a view’s corner radius or giving it a border. Avoid use of `IBDesignable` due to [outstanding tooling issues](http://www.openradar.appspot.com/radar?id=4952346488471552).
+* Use `IBInspectable` to allow for customization of common design properties in Interface Builder, e.g. to specify a view’s corner radius or give it a border. Use `IBDesginable` only to render custom drawing in a view. Avoid using `IBDesignable` to customize outlet properties, as accessing outlets in `prepareForInterfaceBuilder()` is [not currently supported](http://www.openradar.appspot.com/radar?id=4952346488471552).
 * Do not set colors in Interface Builder. It is too easy to fall out of sync with asset catalog and design system colors when they’re set in Interface Builder. Instead, exclusively use color constants provided in code as described in [Assets](https://github.com/Lickability/swift-best-practices/blob/master/Assets.md).
 * Do not set fonts on text components in Interface Builder. Similar to colors, adherence to a design system can become more cumbersome when fonts are specified in both code and Interface Builder. Set all fonts in code.
 * Whenever possible, design and layout views in Interface Builder, and load them from their corresponding nibs from code.
