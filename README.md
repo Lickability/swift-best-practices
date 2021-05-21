@@ -17,6 +17,7 @@ If you want to use this, great! If you want to fork it and make changes, go ahea
 
 ### Related Resources
 * [Common Controller Types](https://github.com/Lickability/swift-style-guide/blob/master/CommonControllerTypes.md)
+* [Access Control](https://github.com/Lickability/swift-style-guide/blob/master/AccessControl.md)
 
 ## Organizational Info 
 * [Assets](https://github.com/Lickability/swift-style-guide/blob/master/Assets.md)
