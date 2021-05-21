@@ -2,16 +2,16 @@
 
 ![architecturediagramsmvcvm](https://user-images.githubusercontent.com/16432044/41361406-f5b5c55c-6efc-11e8-886c-bcd3adbd7294.png)
 
-### [Model](https://github.com/Lickability/swift-style-guide/blob/master/Model.md)
+### [Model](https://github.com/Lickability/swift-style-guide/blob/main/Model.md)
 Models are responsible for representing the data of the application.
 
-### [View](https://github.com/Lickability/swift-style-guide/blob/master/View.md)
+### [View](https://github.com/Lickability/swift-style-guide/blob/main/View.md)
 Views are responsible for rendering content and handling user interaction with that content.
 
-### [Controller](https://github.com/Lickability/swift-style-guide/blob/master/Controller.md)
+### [Controller](https://github.com/Lickability/swift-style-guide/blob/main/Controller.md)
 Controllers are the primary connection between models, view models, and views.
 
-### [View Model](https://github.com/Lickability/swift-style-guide/blob/master/ViewModel.md)
+### [View Model](https://github.com/Lickability/swift-style-guide/blob/main/ViewModel.md)
 A view model is a view’s model. It encapsulates the data needed to populate a particular kind of view and the presentation logic needed to transform that data into properties that can be rendered.
 
 # Model
@@ -81,7 +81,7 @@ Views are responsible for rendering content and handling user interaction with t
 ### Key Considerations
 * Views are responsible for the styling and layout of user interface components.
 * Views are a visual representation of their models.
-* Custom views that are composed of other views define an interface for configuring display properties of their contents through their [view model](https://github.com/Lickability/swift-style-guide/blob/master/ViewModel.md).
+* Custom views that are composed of other views define an interface for configuring display properties of their contents through their [view model](https://github.com/Lickability/swift-style-guide/blob/main/ViewModel.md).
 * For some views, user interaction is communicated to controllers through delegation or closures.
 * For views that inherit from `UIControl` (such as `UISwitch`, `UIButton`, `UISlider`, etc...), user interaction is communicated via a [target-action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3) mechanism to notify your app when an interaction has taken place.
 * The [target-action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3) mechanism can be combined with [delegation](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Delegation.html) or [closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) to delegate the responsibility of handling the action to another controller. See below for a code example.
@@ -191,7 +191,7 @@ Controllers are responsible for controlling the flow of the application executio
 ![architecturediagramscvvm](https://user-images.githubusercontent.com/16432044/41422678-6d3caaa8-6fc7-11e8-9ee6-bd48d3343711.png)
 
 ### Common Controller Types
-Here are some of the [common types of controllers](https://github.com/Lickability/swift-style-guide/blob/master/CommonControllerTypes.md) you will use.
+Here are some of the [common types of controllers](https://github.com/Lickability/swift-style-guide/blob/main/CommonControllerTypes.md) you will use.
 
 ### Code Example
 
@@ -916,7 +916,7 @@ extension ExampleViewController: UINavigationControllerDelegate {
 
 # Formatting
 ### How do we format code?
-Most formatting-related guidelines are enforced by [SwiftLint](https://github.com/realm/SwiftLint) using [our documented configuration file](https://github.com/Lickability/swift-best-practices/blob/master/.swiftlint.yml). Xcode’s default behaviors and preferences are preferred for considerations not covered by SwiftLint rules.
+Most formatting-related guidelines are enforced by [SwiftLint](https://github.com/realm/SwiftLint) using [our documented configuration file](https://github.com/Lickability/swift-best-practices/blob/main/.swiftlint.yml). Xcode’s default behaviors and preferences are preferred for considerations not covered by SwiftLint rules.
 
 ### Key Considerations
 * Resolve any added SwiftLint warnings prior to opening a pull request with your changes.
@@ -968,7 +968,7 @@ Custom operators should be avoided. Custom operators can reduce the readability 
 
 * Place the implementation of any custom operators in an extension on the type it operates on.
 
-* Be sure to refer to our [Extensions](https://github.com/Lickability/swift-style-guide/blob/master/Extensions.md) document when deciding how to name the extension.
+* Be sure to refer to our [Extensions](https://github.com/Lickability/swift-style-guide/blob/main/Extensions.md) document when deciding how to name the extension.
 
 ### Reference Docs
 * [Basic Operators — The Swift Programming Language](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html)
@@ -1048,7 +1048,7 @@ show(settingsViewController, sender: self) // Clear at usage.
 * Each nib should have a single top level item.
     * Separate `UIView` subclasses designed in Interface Builder into their own nib files.
 * Use `IBInspectable` to allow for customization of common design properties in Interface Builder, e.g. to specify a view’s corner radius or give it a border. Use `IBDesginable` only to render custom drawing in a view. Avoid using `IBDesignable` to customize outlet properties, as accessing outlets in `prepareForInterfaceBuilder()` is [not currently supported](http://www.openradar.appspot.com/radar?id=4952346488471552).
-* Do not set colors in Interface Builder. It is too easy to fall out of sync with asset catalog and design system colors when they’re set in Interface Builder. Instead, exclusively use color constants provided in code as described in [Assets](https://github.com/Lickability/swift-best-practices/blob/master/Assets.md).
+* Do not set colors in Interface Builder. It is too easy to fall out of sync with asset catalog and design system colors when they’re set in Interface Builder. Instead, exclusively use color constants provided in code as described in [Assets](https://github.com/Lickability/swift-best-practices/blob/main/Assets.md).
 * Do not set fonts on text components in Interface Builder. Similar to colors, adherence to a design system can become more cumbersome when fonts are specified in both code and Interface Builder. Set all fonts in code.
 * Whenever possible, design and layout views in Interface Builder, and load them from their corresponding nibs from code.
     * For `UITableViewCell` and `UICollectionViewCell`s, register the cell with the `UITableView` or `UICollectionView` using the nib name.
