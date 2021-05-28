@@ -1173,7 +1173,7 @@ func testAddition() {
 ```
 
 #### Codable Models
-Unit testing the default behavior of the Codable protocol is unnecessary. Only implement unit tests when overriding the default implementation of encode(to: Encoder) or init(from: Decoder). One common occurrence of this is when testing the decoding or encoding of date information from an API. In such cases, you should write unit tests to verify that the Codable implementation has been written successfully.
+Unit testing the default behavior of the `Codable` protocol is unnecessary. Only implement unit tests when overriding the default implementation of `encode(to: Encoder)` or `init(from: Decoder)`. One common occurrence of this is when testing the decoding or encoding of date information from an API. In such cases, you should write unit tests to verify that the `Codable` implementation has been written successfully.
 
 ### UI Testing
 UI testing is used to ensure that the interface that is displayed to the user is the one that is expected to be displayed. We use [Xcode UI Testing](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/09-ui_testing.html) to write UI tests.
