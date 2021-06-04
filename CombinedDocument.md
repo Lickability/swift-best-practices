@@ -818,7 +818,7 @@ extension LoginViewController {
 * Files are organized in the following order:
 	* Default header created by Xcode
 	* Import statements
-	* Delegate protocols that are associated only with the major type declaration of the file
+	* Protocols that are associated primarily with the major type declaration of the file, each followed by a corresponding default protocol implementations, if applicable.
 	* The major type declaration of the file
 	* Nested type declarations
 	* Properties
@@ -836,11 +836,13 @@ extension LoginViewController {
 	    * Public
 	    * Internal
 	    * Private
-	* Extension Protocol Conformances
-
+	* Extension protocol conformances
+	* Private extensions of other types
+    
 * Initializers, when implemented, should be the first declaration(s) in each group (inherited, protocol, open, etc.) of functions.
 * `deinit`, when implemented, should come directly after the last initializer. If no initializers exist, `deinit` should come before all other function declarations.
 * For `Codable` conformance, [it may be necessary to implement the special nested type `CodingKeys`, which conforms to `CodingKey`](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types). When present, this nested type should be declared after all other nested types. Since `CodingKeys` and `CodingKey` are not documented as part of the `Codable` protocols, no `MARK` is necessary.
+* Default protocol implementation extensions should never include additional methods or properties unless they are `private` to the extension and only used in the default implementation(s).
 
 ### How do we use MARK?
 Group and separate code using `MARK`. The grouping order for each section of properties and functions should be:
@@ -855,6 +857,7 @@ Group and separate code using `MARK`. The grouping order for each section of pro
 	* The text should be the type you are grouping by.
 * Use `MARK:` for other groupings inside of `MARK: -`, e.g. `MARK: Helper Functions`.
 * When adding a `MARK` for an extension, make sure it is inside the extension.
+* Default protocol implementation extensions do not require a `MARK`.
 
 ### Code Example
 ```swift
