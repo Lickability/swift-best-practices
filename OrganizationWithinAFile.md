@@ -69,7 +69,7 @@ extension LoginViewController {
 	    * Internal
 	    * Private
 	* Extension protocol conformances
-    * Private extensions of other types
+	* Private extensions of other types
     
 * Initializers, when implemented, should be the first declaration(s) in each group (inherited, protocol, open, etc.) of functions.
 * `deinit`, when implemented, should come directly after the last initializer. If no initializers exist, `deinit` should come before all other function declarations.
