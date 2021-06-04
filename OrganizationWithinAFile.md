@@ -70,7 +70,7 @@ extension LoginViewController {
 	    * Private
 	* Extension protocol conformances
 	* Private extensions of other types
-    
+
 * Initializers, when implemented, should be the first declaration(s) in each group (inherited, protocol, open, etc.) of functions.
 * `deinit`, when implemented, should come directly after the last initializer. If no initializers exist, `deinit` should come before all other function declarations.
 * For `Codable` conformance, [it may be necessary to implement the special nested type `CodingKeys`, which conforms to `CodingKey`](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types). When present, this nested type should be declared after all other nested types. Since `CodingKeys` and `CodingKey` are not documented as part of the `Codable` protocols, no `MARK` is necessary.
