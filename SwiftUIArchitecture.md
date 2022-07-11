@@ -4,6 +4,7 @@
 
 ## `Body` placed after init
 
+``` swift
 import Foundation
 import SwiftUI
 
@@ -82,7 +83,7 @@ struct VoiceActivationSettingsView_Previews: PreviewProvider {
         }
     }
 }
-
+```
 
 # Property Wrappers grouped together
 
