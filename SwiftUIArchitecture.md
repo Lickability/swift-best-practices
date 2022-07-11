@@ -4,7 +4,7 @@
 
 ## `Body` placed after init
 
-```swift
+``` swift
 import Foundation
 import SwiftUI
 
