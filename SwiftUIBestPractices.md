@@ -2,7 +2,7 @@
 
 # File Order
 
-## `Body` placed after init
+### `body` placed after `init`
 
 ``` swift
 import Foundation
