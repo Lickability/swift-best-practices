@@ -85,7 +85,7 @@ struct VoiceActivationSettingsView_Previews: PreviewProvider {
 }
 ```
 
-# Property Wrappers grouped together
+### Property Wrappers grouped together
 
 `@StateObject`, `@State`, and `@AppStorage` properties are marked as private, because they do not need to be mutated outside of their containing file. Property wrappers of the same type should be grouped together. 
 In the example below property wrappers are listed first followed by properties without property wrappers. 
