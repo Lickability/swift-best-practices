@@ -174,7 +174,7 @@ HStack {
 
 ## Modifiers containing closures
 
-When adding comments to modifiers containing closures, the comment should be placed above the line of code you want to give clarity to.
+When adding comments to modifiers containing closures, the comment should be placed at the beginning of the closure’s body.
 
 ```swift 
 func body(content: Content) -> some View {
