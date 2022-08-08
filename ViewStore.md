@@ -92,6 +92,5 @@ An example usage of the View Store pattern can be found [here](https://github.co
 # Things left to organize / cover
 * not every view has a view store. When to use one?
 * Link (bi-directionally) to the ViewStore package readme. And possibly the example project.
-* Update View Store main description in all other locations.
 * Update sample project in view store package to be the LWL project.
     * Fix links to the example LWL project here to reflect the new, more publich location
