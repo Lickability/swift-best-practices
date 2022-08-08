@@ -53,7 +53,7 @@ Additionally, `PassthroughSubject`s are prepended with an initial value, since t
 let showsPhotosCountPublisher = self.showsPhotosCountPublisher.prepend(ViewState.initial.showsPhotoCount)
 photoPublisher
     .combineLatest(showsPhotosCountPublisher)
-    .map { /* … */ }
+    .map { /* transformation to ViewState */ }
     .assign(to: &$viewState)
 ```
 
