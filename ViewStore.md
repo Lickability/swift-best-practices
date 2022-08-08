@@ -85,17 +85,13 @@ var showsPhotoCount: Binding<Bool> {
 }
 ```
 
-* Example: TK
-* PassthroughSubject usage
-
 # Example
 
 An example usage of the View Store pattern can be found [here](https://github.com/Lickability/view-store-lwl). In this project, [`PhotoList.swift`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoList.swift) makes use of [`PhotoListViewStore`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoListViewStore.swift) to perform network requests and format data for display in the list, as well as update the source of truth via actions (searching and a `Toggle`) performed by the user. `PhotoListOriginal.swift`, for the sake of comparison, does _not_ use a view store.
 
 # Things left to organize / cover
 * not every view has a view store. When to use one?
-* Certainly need to cover `Combine` and how it’s used.
-* Discuss the implementation of a view store in detail. Cover how it combines data from external sources and input from the view via `send(_ action:)` to produce the single source of truth.
 * Link (bi-directionally) to the ViewStore package readme. And possibly the example project.
 * Update View Store main description in all other locations.
-Talk about Bindings
+* Update sample project in view store package to be the LWL project.
+    * Fix links to the example LWL project here to reflect the new, more publich location
