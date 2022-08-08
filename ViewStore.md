@@ -60,6 +60,7 @@ photoPublisher
 ## Bindings
 
 Many SwiftUI APIs accept bindings for state that is both read and written to. Binding properties or methods are frequently declared on view stores as a convenience for working with these APIs. To keep a single source of truth, the binding typically reads a property on the `viewState` and performs an action that results in an update to the view state.
+
 ```swift
 var showsPhotoCount: Binding<Bool> {
     return Binding<Bool> {
@@ -70,7 +71,13 @@ var showsPhotoCount: Binding<Bool> {
 }
 ```
 
-As a convenience, a [`makeBinding` API](https://github.com/Lickability/ViewStore/blob/main/Sources/ViewStore/ViewStore%2BBindingAdditions.swift) is provided on the `ViewStore` protocol to create a succinct syntax for this common case.
+Rather than using `send(_ action:)` directly, the `View` would instead use this binding.
+
+```swift
+Toggle("Show Count", isOn: store.showsPhotoCount)
+```
+
+As a convenience, a [`makeBinding` API](https://github.com/Lickability/ViewStore/blob/main/Sources/ViewStore/ViewStore%2BBindingAdditions.swift) is provided in an extension of the `ViewStore` protocol to create a succinct syntax for this common case. This extension uses [CasePaths](https://github.com/pointfreeco/swift-case-paths).
 
 ```swift
 var showsPhotoCount: Binding<Bool> {
