@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 /// Displays the settings related to voice activation.
+
 struct SettingsView: View {
     
     private enum Constants {
@@ -18,47 +19,47 @@ struct SettingsView: View {
     
     @AppStorage(AppStorageKeys.keyOne) private var propertyOne = 0.5
     @AppStorage(AppStorageKeys.keyTwo) private var propertyTwo = 0.75
-    @AppStorage(AppStorageKeys.keyThree) private var propeertyThree = 0.5
-   
+    @AppStorage(AppStorageKeys.keyThree) private var propertyThree = 0.5
+    
     @Binding private var sliderValue: Double
     @Binding private var wasSessionPreviouslyRunning: Bool
-
+    
     @StateObject private var object = DeviceObserver()
     
     private let numberFormatter = NumberFormatter.fractionFormatter
     private let wasSessionPreviouslyRunning: Bool
-		private let settingsViewModel: SettingsViewModel
-
+    private let settingsViewModel: SettingsViewModel
+    
     // MARK: - SettingsView
     
     init(sliderValue: Binding<Double>, wasSessionPreviouslyRunning: Binding<Bool>, settingsViewModel: SettingsViewModel) {
-					self._sliderValue = sliderValue
-					self._wasSessionPreviouslyRunning = wasSessionPreviouslyRunning
-					self.settingsViewModel = settingsViewModel
-		}
+        self._sliderValue = sliderValue
+        self._wasSessionPreviouslyRunning = wasSessionPreviouslyRunning
+        self.settingsViewModel = settingsViewModel
+    }
     
     // MARK: - View
-
+    
     var body: some View {
         List {...}
-        .listStyle(InsetGroupedListStyle())
-        .navigationTitle("Voice Activation")
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            startSessionIfNeeded()
-        }
-        .onDisappear {
-            stopSessionIfNeeded()
-        }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                PickerView()
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Voice Activation")
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                startSessionIfNeeded()
             }
-        }
+            .onDisappear {
+                stopSessionIfNeeded()
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    PickerView()
+                }
+            }
     }
-
+    
     // MARK: - SettingsView
-
+    
     private func startAudioSessionIfNeeded() {
         guard !wasSessionPreviouslyRunning else {
             return
@@ -92,7 +93,6 @@ In the example below property wrappers are listed first followed by properties w
 
 ```swift 
 struct SettingsView: View {
-
     @Binding private(set) var isDisplayingCertificateView: Bool
     @ObservableObject private(set) var settingsViewModel: SettingViewModel
     @AppStorage(AppStorageKeys.keyOne) private var propertyOne = 0.5
@@ -102,7 +102,7 @@ struct SettingsView: View {
     
     private let numberFormatter = NumberFormatter.fractionFormatter
     private let wasSessionPreviouslyRunning: Bool
- }
+}
 ```
 
 # Initializing SwiftUI Views
@@ -113,31 +113,32 @@ struct SettingsView: View {
 
 ```swift 
 struct SettingsView: View {
-
-        @Binding private var sliderValue: Double
-        @Binding private var wasSessionPreviouslyRunning: Bool
-
-		private let settingsViewModel: SettingsViewModel
-		private let numberFormatter = NumberFormatter.fractionFormatter
     
-		init(sliderValue: Binding<Double>, wasSessionPreviouslyRunning: Binding<Bool>, settingsViewModel: SettingsViewModel) {
-					self._sliderValue = sliderValue
-					self._wasSessionPreviouslyRunning = wasSessionPreviouslyRunning
-					self.settingsViewModel = settingsViewModel
-		}
- }
+    @Binding private var sliderValue: Double
+    @Binding private var wasSessionPreviouslyRunning: Bool
+    
+    private let settingsViewModel: SettingsViewModel
+    private let numberFormatter = NumberFormatter.fractionFormatter
+    
+    init(sliderValue: Binding<Double>, wasSessionPreviouslyRunning: Binding<Bool>, settingsViewModel: SettingsViewModel) {
+        self._sliderValue = sliderValue
+        self._wasSessionPreviouslyRunning = wasSessionPreviouslyRunning
+        self.settingsViewModel = settingsViewModel
+    }
+}
+
 
 ```
 
 ### A member-wise initializer
 ```swift 
 struct SettingsView: View {
-
-        @Binding private(set) var sliderValue: Double
-		@Binding private(set) var wasSessionPreviouslyRunning: Bool
-
-		private let settingsViewModel: SettingsViewModel
-		private let numberFormatter = NumberFormatter.fractionFormatter
+    
+    @Binding private(set) var sliderValue: Double
+    @Binding private(set) var wasSessionPreviouslyRunning: Bool
+    
+    private let settingsViewModel: SettingsViewModel
+    private let numberFormatter = NumberFormatter.fractionFormatter
 }
 ```
 
@@ -147,13 +148,13 @@ In this example we the values of the `@Binding` value is able to be mutated outs
 
 ```swift 
 struct SettingsView: View {
-
-        @Binding var sliderValue: Double
-		@Binding var wasSessionPreviouslyRunning: Bool
-
-		private let settingsViewModel: SettingsViewModel
-		private let numberFormatter = NumberFormatter.fractionFormatter
- }
+    
+    @Binding var sliderValue: Double
+    @Binding var wasSessionPreviouslyRunning: Bool
+    
+    private let settingsViewModel: SettingsViewModel
+    private let numberFormatter = NumberFormatter.fractionFormatter
+}
 
 SettingsView(sliderValue: sliderValue, wasSessionPreviouslyRunning:wasSessionPreviouslyRunning, settingsViewModel: SettingsViewModel())
 ```
@@ -179,9 +180,9 @@ When adding comments to modifiers containing closures, the comment should be pla
 ```swift 
 func body(content: Content) -> some View {
     content
-		.onTapGesture {
-				 // sets the state property when content tapped
-         self.liked = !self.liked
-       }
+        .onTapGesture {
+            // sets the state property when content tapped
+            self.liked = !self.liked
+        }
 }
 ```
