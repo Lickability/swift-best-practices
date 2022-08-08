@@ -89,8 +89,53 @@ var showsPhotoCount: Binding<Bool> {
 
 An example usage of the View Store pattern can be found [here](https://github.com/Lickability/view-store-lwl). In this project, [`PhotoList.swift`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoList.swift) makes use of [`PhotoListViewStore`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoListViewStore.swift) to perform network requests and format data for display in the list, as well as update the source of truth via actions (searching and a `Toggle`) performed by the user. `PhotoListOriginal.swift`, for the sake of comparison, does _not_ use a view store.
 
+# When to Use a View Store
+
+Not every SwiftUI `View` will have a corresponding view store. Some views are simple enough to pass all information in on `init` without any added complexity. However, the data passed to these simple views should originate from a view store of a parent view. For example, when displaying a grid of photos fetched from the network, a view store could be used to fetch and transform network data into the `viewState` used to populate the grid. Each grid element, however, doesn’t require additional data transformation, so a grid element’s corresponding `View` need not have a view store.
+
+The same can be done with minor actions on these simple views. The actions should be handled by a view store, but for simple views, that action can be performed by passing in a closure that the parent can specify.
+
+```swift
+struct PhotoGrid: View {
+    
+    @StateObject private var store: PhotoListViewStore
+
+    init(provider: Provider) {
+        self._store = StateObject(wrappedValue: PhotoListViewStore(provider: provider))
+    }
+
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
+                ForEach(store.viewState.photos) { photo in
+                    PhotoGridElement(thumbnailUrl: photo.thumbnailUrl) {
+                        store.send(.tapPhoto(id: photo.id))
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct PhotoGridElement: View {
+    let thumbnailUrl: URL
+    let tapHandler: () -> Void
+
+    var body: some View {
+        AsyncImage(url: thumbnailUrl) { image in
+            image.resizable()
+                .aspectRatio(contentMode: .fit)
+        } placeholder: {
+            ProgressView()
+        }
+        .onTapGesture {
+            tapHandler()
+        }
+    }
+}
+```
+
 # Things left to organize / cover
-* not every view has a view store. When to use one?
 * Link (bi-directionally) to the ViewStore package readme. And possibly the example project.
 * Update sample project in view store package to be the LWL project.
     * Fix links to the example LWL project here to reflect the new, more publich location
