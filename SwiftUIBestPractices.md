@@ -43,15 +43,13 @@ struct SettingsView: View {
 }
 ```
 
-# Initializing SwiftUI Views
-
-## Creating Initializers
+## Initializing SwiftUI Views
 
 ### A synthesized initializer
 
+In the example below we use a synthesized initializer to create our view. We pass our binding with in our initializer to clean up our property call sites and 
 ```swift 
 struct SettingsView: View {
-    
     @Binding private var sliderValue: Double
     @Binding private var wasSessionPreviouslyRunning: Bool
     
@@ -64,11 +62,10 @@ struct SettingsView: View {
         self.settingsViewModel = settingsViewModel
     }
 }
-
-
 ```
 
 ### A member-wise initializer
+
 ```swift 
 struct SettingsView: View {
     
@@ -100,7 +97,7 @@ SettingsView(sliderValue: sliderValue, wasSessionPreviouslyRunning:wasSessionPre
 ## Comments related to modifiers
 
 ### Single line Modifiers
-Comments explaining the use of modifiers should be placed to the right of the modifiers. 
+If usage of a particular modifier is unobvious at the call site, add a comment explaining its usage. Comments explaining the use of modifiers should be placed to the right of the modifiers.
 
 ```swift 
 HStack {
@@ -112,7 +109,6 @@ HStack {
 ```
 
 ## Modifiers containing closures
-
 When adding comments to modifiers containing closures, the comment should be placed at the beginning of the closure’s body.
 
 ```swift 
