@@ -30,7 +30,7 @@ A view store can combine many different sources of data into its single `viewSta
 
 ## Performing `Action`s
 
-To perform an action, we typically create a `PassthroughSubject`, which is then used in the `Combine` pipeline to update the `viewState`. We call the `send(_:)` function to perform the action, and then typically send a new value to the `PassthroughSubject`.
+To perform an action, we typically create a `PassthroughSubject`, which is then used in the `Combine` pipeline to update the `viewState`. We call the `send(_ action:)` API to perform the action, and then typically send a new value to the `PassthroughSubject`.
 
 ```swift
 enum Action {
@@ -60,7 +60,6 @@ photoPublisher
 ## Bindings
 
 Many SwiftUI APIs accept bindings for state that is both read and written to. Binding properties or methods are frequently declared on view stores as a convenience for working with these APIs. To keep a single source of truth, the binding typically reads a property on the `viewState` and performs an action that results in an update to the view state.
-
 ```swift
 var showsPhotoCount: Binding<Bool> {
     return Binding<Bool> {
