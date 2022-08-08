@@ -1,6 +1,6 @@
 # SwiftUI Best Practices
 
-# File Order
+## File Order
 
 ### `body` placed after `init`
 
