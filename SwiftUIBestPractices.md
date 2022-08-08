@@ -5,32 +5,9 @@
 ### `body` placed after `init`
 
 ``` swift
-import Foundation
-import SwiftUI
-
 /// Displays the settings related to voice activation.
-
 struct SettingsView: View {
-    
-    private enum Constants {
-        static let stepperValue = 0.1
-        static let stepperRange = 0.0...2.0
-    }
-    
-    @AppStorage(AppStorageKeys.keyOne) private var propertyOne = 0.5
-    @AppStorage(AppStorageKeys.keyTwo) private var propertyTwo = 0.75
-    @AppStorage(AppStorageKeys.keyThree) private var propertyThree = 0.5
-    
-    @Binding private var sliderValue: Double
-    @Binding private var wasSessionPreviouslyRunning: Bool
-    
-    @StateObject private var object = DeviceObserver()
-    
-    private let numberFormatter = NumberFormatter.fractionFormatter
-    private let wasSessionPreviouslyRunning: Bool
-    private let settingsViewModel: SettingsViewModel
-    
-    // MARK: - SettingsView
+    // …
     
     init(sliderValue: Binding<Double>, wasSessionPreviouslyRunning: Binding<Bool>, settingsViewModel: SettingsViewModel) {
         self._sliderValue = sliderValue
@@ -42,46 +19,7 @@ struct SettingsView: View {
     
     var body: some View {
         List {...}
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Voice Activation")
-            .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                startSessionIfNeeded()
-            }
-            .onDisappear {
-                stopSessionIfNeeded()
-            }
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    PickerView()
-                }
-            }
-    }
-    
-    // MARK: - SettingsView
-    
-    private func startAudioSessionIfNeeded() {
-        guard !wasSessionPreviouslyRunning else {
-            return
-        }
-        
-        audioSession.start()
-    }
-    
-    private func stopAudioSessionIfNeeded() {
-        guard !wasSessionPreviouslyRunning else {
-            return
-        }
-        
-        audioSession.stop()
-    }
-}
-
-struct VoiceActivationSettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            SettingsView(audioSession: AVAudioSession())
-        }
+            .listStyle(.insetGrouped)
     }
 }
 ```
