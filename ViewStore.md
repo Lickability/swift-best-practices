@@ -97,7 +97,6 @@ The same can be done with minor actions on these simple views. The actions shoul
 
 ```swift
 struct PhotoGrid: View {
-    
     @StateObject private var store: PhotoListViewStore
 
     init(provider: Provider) {
