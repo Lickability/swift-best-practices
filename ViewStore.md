@@ -118,7 +118,7 @@ struct PhotoGrid: View {
 
 struct PhotoGridElement: View {
     let thumbnailUrl: URL
-    let tapHandler: () -> Void
+    let onTap: () -> Void
 
     var body: some View {
         AsyncImage(url: thumbnailUrl) { image in
@@ -128,7 +128,7 @@ struct PhotoGridElement: View {
             ProgressView()
         }
         .onTapGesture {
-            tapHandler()
+            onTap()
         }
     }
 }
