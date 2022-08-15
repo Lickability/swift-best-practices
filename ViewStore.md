@@ -85,7 +85,7 @@ var showsPhotoCount: Binding<Bool> {
 }
 ```
 
-# Example
+# Example Project
 
 An example usage of the View Store pattern can be found [here](https://github.com/Lickability/view-store-lwl). In this project, [`PhotoList.swift`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoList.swift) makes use of [`PhotoListViewStore`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoListViewStore.swift) to perform network requests and format data for display in the list, as well as update the source of truth via actions (searching and a `Toggle`) performed by the user. `PhotoListOriginal.swift`, for the sake of comparison, does _not_ use a view store.
 
