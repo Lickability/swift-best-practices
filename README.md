@@ -15,6 +15,10 @@ If you want to use this, great! If you want to fork it and make changes, go ahea
 * **C** - [Controller](https://github.com/Lickability/swift-style-guide/blob/main/Controller.md)
 * **VM** - [View Model](https://github.com/Lickability/swift-style-guide/blob/main/ViewModel.md)
 
+### SwiftUI
+
+* [View Store](https://github.com/Lickability/swift-style-guide/blob/main/ViewStore.md)
+
 ### Related Resources
 * [Common Controller Types](https://github.com/Lickability/swift-style-guide/blob/main/CommonControllerTypes.md)
 * [Access Control](https://github.com/Lickability/swift-style-guide/blob/main/AccessControl.md)
