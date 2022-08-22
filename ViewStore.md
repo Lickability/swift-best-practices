@@ -1,6 +1,6 @@
 # View Store
 
-View Store is an architecture pattern and a protocol used in SwiftUI development inspired by [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture). A view store is an `ObservableObject` that allows us to separate view-specific logic and the rendering of a corresponding view in a way that is repeatable, prescriptive, flexible, and testable by default.
+View Store is an architecture pattern and a protocol used in SwiftUI development inspired by [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture). A view store is an `ObservableObject` that allows us to separate view-specific logic and the rendering of a corresponding view in a way that is repeatable, prescriptive, flexible, and testable by default. It is available as a [Swift Package](https://github.com/Lickability/ViewStore).
 
 ## The Protocol
 
@@ -87,7 +87,7 @@ var showsPhotoCount: Binding<Bool> {
 
 # Example Project
 
-An example usage of the View Store pattern can be found [here](https://github.com/Lickability/view-store-lwl). In this project, [`PhotoList.swift`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoList.swift) makes use of [`PhotoListViewStore`](https://github.com/Lickability/view-store-lwl/blob/main/ViewStoreLWL/Photos/PhotoListViewStore.swift) to perform network requests and format data for display in the list, as well as update the source of truth via actions (searching and a `Toggle`) performed by the user. `PhotoListOriginal.swift`, for the sake of comparison, does _not_ use a view store.
+An example usage of the View Store pattern can be found in the [ViewStore package repository](https://github.com/Lickability/ViewStore). In this project, [`PhotoList.swift`](https://github.com/Lickability/ViewStore/blob/main/Example/Photos/PhotoList.swift) makes use of [`PhotoListViewStore`](https://github.com/Lickability/ViewStore/blob/main/Example/Photos/PhotoListViewStore.swift) to perform network requests and format data for display in the list, as well as update the source of truth via actions (searching and a `Toggle`) performed by the user. `PhotoListOriginal.swift`, for the sake of comparison, does _not_ use a view store.
 
 # When to Use a View Store
 
@@ -133,8 +133,3 @@ struct PhotoGridElement: View {
     }
 }
 ```
-
-# Things left to organize / cover
-* Link (bi-directionally) to the ViewStore package readme. And possibly the example project.
-* Update sample project in view store package to be the LWL project.
-    * Fix links to the example LWL project here to reflect the new, more publich location
