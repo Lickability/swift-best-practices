@@ -18,7 +18,7 @@ protocol ViewStore: ObservableObject {
 
 ### `ViewState`
 
-The `viewState` property on the `ViewStore` protocol is the single source of truth for data that the corresponding `View` uses. It should always be declared as a `@Published` property. Similar to a [view model](https://github.com/Lickability/swift-best-practices/blob/main/ViewModel.md), the properties on `ViewState` should not require the corresponding `View` to perform any additional transformation logic or formatting.
+The `viewState` property on the `ViewStore` protocol is the single source of truth for data that the corresponding `View` uses. It should always be declared as a `@Published` property. Similar to a [view model](https://github.com/Lickability/swift-best-practices/blob/main/ViewModel.md), the properties on `ViewState` should not require the corresponding `View` to perform any additional transformation logic or formatting for display (e.g. text, numbers, and dates).
 
 ### `Action`
 
