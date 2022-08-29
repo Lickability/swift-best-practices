@@ -1,5 +1,4 @@
 # SwiftUI Best Practices
-
 ## File Order
 
 ### `body` placed after `init`
@@ -43,10 +42,8 @@ struct SettingsView: View {
 }
 ```
 
-## Initializing SwiftUI Views
-
+# Initializing SwiftUI Views
 ### A synthesized initializer
-
 In the example below we use a synthesized initializer to create our view. We pass our binding with in our initializer to clean up our property call sites and 
 ```swift 
 struct SettingsView: View {
@@ -65,7 +62,9 @@ struct SettingsView: View {
 ```
 
 ### A member-wise initializer
+If a `@Binding`  property is not being modifier with in the view which references it, consider marking it a `private(set)` . This ensures that our property won’t be mutated outside of the context we want it to be.
 
+#### Example One
 ```swift 
 struct SettingsView: View {
     
@@ -77,10 +76,9 @@ struct SettingsView: View {
 }
 ```
 
-### Regular initializer- without private set.
+In this example we the values of the `@Binding` value is able to be mutated outside of this view, hence we don’t mark it `private(set)`.
 
-In this example we the values of the `@Binding` value is able to be mutated outside of this view.
-
+#### Example Two
 ```swift 
 struct SettingsView: View {
     
@@ -95,9 +93,8 @@ SettingsView(sliderValue: sliderValue, wasSessionPreviouslyRunning:wasSessionPre
 ```
 
 ## Comments related to modifiers
-
 ### Single line Modifiers
-If usage of a particular modifier is unobvious at the call site, add a comment explaining its usage. Comments explaining the use of modifiers should be placed to the right of the modifiers.
+If usage of a particular modifier is unclear at the call site, add a comment explaining its usage. Comments explaining the use of modifiers should be placed to the right of the modifiers.
 
 ```swift 
 HStack {
