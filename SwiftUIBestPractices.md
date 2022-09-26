@@ -1,7 +1,8 @@
 # SwiftUI Best Practices
-## File Order
+## File Order - Dictates how individual View components are placed within a file.
 
 ### `body` placed after `init`
+We recommend placing the body of the view after the initializer, since this helps to establish a predictable location for the body with in the file. 
 
 ``` swift
 /// Displays the settings related to voice activation.
@@ -23,8 +24,30 @@ struct SettingsView: View {
 }
 ```
 
-### Property Wrappers grouped together
+ `body` placed after properties
+When no initializer is present the body can be placed immediately after the properties listed.
 
+``` swift
+/// Displays the settings related to voice activation.
+struct SettingsView: View {
+    // …
+    @AppStorage(AppStorageKeys.keyTwo) private var propertyTwo = 0.75
+    @AppStorage(AppStorageKeys.keyThree) private var propertyThree = 0.5
+    @StateObject private var object = DeviceObserver()
+    
+    private let numberFormatter = NumberFormatter.fractionFormatter
+    private let wasSessionPreviouslyRunning: Bool
+    
+    // MARK: - View
+    
+    var body: some View {
+        List {...}
+            .listStyle(.insetGrouped)
+    }
+}
+```
+
+### Property Wrappers grouped together
 `@StateObject`, `@State`, and `@AppStorage` properties are marked as private, because they do not need to be mutated outside of their containing file. Property wrappers of the same type should be grouped together. 
 In the example below property wrappers are listed first followed by properties without property wrappers. 
 
@@ -44,7 +67,8 @@ struct SettingsView: View {
 
 # Initializing SwiftUI Views
 ### A synthesized initializer
-In the example below we use a synthesized initializer to create our view. We pass our binding with in our initializer to clean up our property call sites and 
+In the example below we use a synthesized initializer to create our view. We pass our binding with in our initializer to clean up our property call sites.
+
 ```swift 
 struct SettingsView: View {
     @Binding private var sliderValue: Double
