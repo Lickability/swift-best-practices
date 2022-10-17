@@ -67,7 +67,7 @@ struct SettingsView: View {
 
 # Initializing SwiftUI Views
 ### A synthesized initializer
-In the example below we use a synthesized initializer to create our view. We pass our binding with in our initializer to clean up our property call sites.
+In the example below we use a synthesized initializer to create our view. We pass our binding to our initializer to clean up our property call sites.
 
 ```swift 
 struct SettingsView: View {
