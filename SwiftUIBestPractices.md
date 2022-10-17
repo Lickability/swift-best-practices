@@ -86,7 +86,7 @@ struct SettingsView: View {
 ```
 
 ### A member-wise initializer
-If a `@Binding`  property is not being modifier with in the view which references it, consider marking it a `private(set)` . This ensures that our property won’t be mutated outside of the context we want it to be.
+If a `@Binding`  property is not being modified within the view that references it, consider marking it a `private(set)` . This ensures that our property won’t be mutated outside of the context we want it to be.
 
 #### Example One
 ```swift 
