@@ -24,7 +24,7 @@ struct SettingsView: View {
 }
 ```
 
- `body` placed after properties
+### `body` placed after properties
 When no initializer is present the body can be placed immediately after the properties listed.
 
 ``` swift
