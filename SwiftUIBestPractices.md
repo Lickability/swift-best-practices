@@ -2,7 +2,7 @@
 ## File Order - Dictates how individual View components are placed within a file.
 
 ### `body` placed after `init`
-We recommend placing the body of the view after the initializer, since this helps to establish a predictable location for the body with in the file. 
+We recommend placing the body of the view after the initializer, since this helps to establish a predictable location for the body within the file. 
 
 ``` swift
 /// Displays the settings related to voice activation.
