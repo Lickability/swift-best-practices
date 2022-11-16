@@ -65,7 +65,7 @@ struct SettingsView: View {
 }
 ```
 
-# Initializing SwiftUI Views
+## Initializing SwiftUI Views
 ### A manually written initializer
 In the example below we use a manually written initializer to create our view. We pass our binding to our initializer to clean up our property call sites.
 
@@ -124,7 +124,7 @@ HStack {
 .someModifier3()
 ```
 
-## Modifiers containing closures
+### Modifiers containing closures
 When adding comments to modifiers containing closures, the comment should be placed at the beginning of the closure’s body.
 
 ```swift 
