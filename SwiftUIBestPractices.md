@@ -66,18 +66,19 @@ struct SettingsView: View {
 ```
 
 # Initializing SwiftUI Views
-### A synthesized initializer
-In the example below we use a synthesized initializer to create our view. We pass our binding to our initializer to clean up our property call sites.
+### A manually written initializer
+In the example below we use a manually written initializer to create our view. We pass our binding to our initializer to clean up our property call sites.
 
 ```swift 
-struct SettingsView: View {
+public struct SettingsView: View {
+
     @Binding private var sliderValue: Double
     @Binding private var wasSessionPreviouslyRunning: Bool
     
     private let settingsViewModel: SettingsViewModel
     private let numberFormatter = NumberFormatter.fractionFormatter
     
-    init(sliderValue: Binding<Double>, wasSessionPreviouslyRunning: Binding<Bool>, settingsViewModel: SettingsViewModel) {
+    public init(sliderValue: Binding<Double>, wasSessionPreviouslyRunning: Binding<Bool>, settingsViewModel: SettingsViewModel) {
         self._sliderValue = sliderValue
         self._wasSessionPreviouslyRunning = wasSessionPreviouslyRunning
         self.settingsViewModel = settingsViewModel
@@ -85,35 +86,29 @@ struct SettingsView: View {
 }
 ```
 
-### A member-wise initializer
-If a `@Binding`  property is not being modified within the view that references it, consider marking it a `private(set)` . This ensures that our property won’t be mutated outside of the context we want it to be.
+When using a manually written initializer, if the first parameter type and label would be obvious at the call site, the parameter label can be omitted.
 
-#### Example One
+```swift
+// declaration
+init(_ text: String)
+
+// usage
+Button("Tap here")
+```
+
+### A syntesized member-wise initializer
+
+In most cases, you should rely on syntesized member-wise initializers. Any `var` properties set on initialization should be marked `private(set)`.
+
 ```swift 
 struct SettingsView: View {
     
     @Binding private(set) var sliderValue: Double
     @Binding private(set) var wasSessionPreviouslyRunning: Bool
     
-    private let settingsViewModel: SettingsViewModel
-    private let numberFormatter = NumberFormatter.fractionFormatter
+    let settingsViewModel: SettingsViewModel
+    let numberFormatter = NumberFormatter.fractionFormatter
 }
-```
-
-In this example we the values of the `@Binding` value is able to be mutated outside of this view, hence we don’t mark it `private(set)`.
-
-#### Example Two
-```swift 
-struct SettingsView: View {
-    
-    @Binding var sliderValue: Double
-    @Binding var wasSessionPreviouslyRunning: Bool
-    
-    private let settingsViewModel: SettingsViewModel
-    private let numberFormatter = NumberFormatter.fractionFormatter
-}
-
-SettingsView(sliderValue: sliderValue, wasSessionPreviouslyRunning:wasSessionPreviouslyRunning, settingsViewModel: SettingsViewModel())
 ```
 
 ## Comments related to modifiers

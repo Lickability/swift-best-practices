@@ -17,6 +17,7 @@ If you want to use this, great! If you want to fork it and make changes, go ahea
 
 ### SwiftUI
 
+* [General Best Practices](https://github.com/Lickability/swift-style-guide/blob/main/SwiftUIBestPractices.md)
 * [View Store](https://github.com/Lickability/swift-style-guide/blob/main/ViewStore.md)
 
 ### Related Resources
