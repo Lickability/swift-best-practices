@@ -22,7 +22,7 @@ The `viewState` property on the `ViewStore` protocol is the single source of tru
 
 ### `Action`
 
-`Action`s can be perfomed by the corresponding `View` using the `send(_ action:)` API. `Action` is typically modeled as an `enum`. When an action is performed, it typically has an effect on the view state. For example, `.refresh` might be an action that a `View` triggers on a view store, resulting in it re-fetching data and updating its corresponding `viewState`.
+`Action`s can be performed by the corresponding `View` using the `send(_ action:)` API. `Action` is typically modeled as an `enum`. When an action is performed, it typically has an effect on the view state. For example, `.refresh` might be an action that a `View` triggers on a view store, resulting in it re-fetching data and updating its corresponding `viewState`.
 
 # Updating View State
 
