@@ -85,6 +85,25 @@ var showsPhotoCount: Binding<Bool> {
 }
 ```
 
+# Computed Properties
+
+You often may consider exposing computed properties that perform additional transformations on existing `State` properties. When doing so, add these computed properties to `State` or an extension on the `State` type, rather than to the view store itself. This way, almost all state property access happens consistently through `state` at the call site. When using an extension, you may make the extension private, and declare it within the corresponding `View`’s file if no other clients need to access the computed properties.
+
+For example, consider an extension declared privately within `PhotoList.swift`, which contains the Swift UI `View` that corresponds to `PhotoListViewStore`:
+
+```swift
+private extension PhotoListViewStore.State {
+    var hasPhotos: Bool {
+        switch status {
+        case .error, .loading:
+            return false
+        case let .content(photos):
+            return !photos.isEmpty
+        }
+    }
+}
+```
+
 # Example Project
 
 An example usage of the View Store pattern can be found in the [ViewStore package repository](https://github.com/Lickability/ViewStore). In this project, [`PhotoList.swift`](https://github.com/Lickability/ViewStore/blob/main/Example/Photos/PhotoList.swift) makes use of [`PhotoListViewStore`](https://github.com/Lickability/ViewStore/blob/main/Example/Photos/PhotoListViewStore.swift) to perform network requests and format data for display in the list, as well as update the source of truth via actions (searching and a `Toggle`) performed by the user. `PhotoListOriginal.swift`, for the sake of comparison, does _not_ use a view store.
