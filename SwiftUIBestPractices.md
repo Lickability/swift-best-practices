@@ -66,6 +66,21 @@ struct SettingsView: View {
 ```
 
 ## Initializing SwiftUI Views
+### A synthesized member-wise initializer
+
+In most cases, you should rely on synthesized member-wise initializers. Any `var` properties set on initialization should be marked `private(set)`.
+
+```swift 
+struct SettingsView: View {
+    
+    @Binding private(set) var sliderValue: Double
+    @Binding private(set) var wasSessionPreviouslyRunning: Bool
+    
+    let settingsViewModel: SettingsViewModel
+    let numberFormatter = NumberFormatter.fractionFormatter
+}
+```
+
 ### A manually written initializer
 In the example below we use a manually written initializer to create our view. We pass our binding to our initializer to clean up our property call sites.
 
@@ -94,45 +109,4 @@ init(_ text: String)
 
 // usage
 Button("Tap here")
-```
-
-### A syntesized member-wise initializer
-
-In most cases, you should rely on syntesized member-wise initializers. Any `var` properties set on initialization should be marked `private(set)`.
-
-```swift 
-struct SettingsView: View {
-    
-    @Binding private(set) var sliderValue: Double
-    @Binding private(set) var wasSessionPreviouslyRunning: Bool
-    
-    let settingsViewModel: SettingsViewModel
-    let numberFormatter = NumberFormatter.fractionFormatter
-}
-```
-
-## Comments related to modifiers
-### Single line Modifiers
-If usage of a particular modifier is unclear at the call site, add a comment explaining its usage. Comments explaining the use of modifiers should be placed to the right of the modifiers.
-
-```swift 
-HStack {
-    // …
-}
-.someModifier1()
-.someModifier2() // we use this because blah blah blah
-.someModifier3()
-```
-
-### Modifiers containing closures
-When adding comments to modifiers containing closures, the comment should be placed at the beginning of the closure’s body.
-
-```swift 
-func body(content: Content) -> some View {
-    content
-        .onTapGesture {
-            // sets the state property when content tapped
-            self.liked = !self.liked
-        }
-}
 ```
