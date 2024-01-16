@@ -1,4 +1,4 @@
-# You can reference documentation on rules here https://realm.github.io/SwiftLint/rule  -directory.html
+# You can reference documentation on rules here https://realm.github.io/SwiftLint/rule-directory.html
 disabled_rules: # rule identifiers to exclude from running
   - closure_end_indentation
   - cyclomatic_complexity
