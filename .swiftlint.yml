@@ -3,6 +3,7 @@ disabled_rules: # rule identifiers to exclude from running
   - closure_end_indentation
   - cyclomatic_complexity
   - discouraged_object_literal
+  - discouraged_optional_collection
   - explicit_acl
   - explicit_enum_raw_value
   - explicit_top_level_acl
@@ -79,7 +80,6 @@ opt_in_rules: # some rules are only opt-in
   - direct_return
   - discouraged_direct_init
   - discouraged_optional_boolean
-  - discouraged_optional_collection
   - discarded_notification_center_observer
   - duplicate_enum_cases
   - duplicate_imports
