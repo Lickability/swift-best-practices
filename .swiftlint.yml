@@ -196,7 +196,7 @@ file_header:
                     \/\/
 
 attributes:
-  always_on_same_line: ["@IBAction", "@IBSegueAction", "@NSManaged", "@discardableResult", "@escaping", "@objc"]
+  always_on_same_line: ["@IBAction", "@IBSegueAction", "@NSManaged", "@discardableResult", "@escaping", "@objc", "@Environment", "@AppStorage"]
 
 custom_rules:
   force_https:
