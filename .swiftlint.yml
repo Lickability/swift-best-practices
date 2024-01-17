@@ -178,7 +178,6 @@ opt_in_rules: # some rules are only opt-in
   - vertical_whitespace
   - vertical_whitespace_closing_braces
   - void_return
-  - weak_computed_property
   - weak_delegate
   - xctfail_message
   - yoda_condition
