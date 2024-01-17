@@ -40,6 +40,7 @@ disabled_rules: # rule identifiers to exclude from running
   - reduce_into
   - sorted_enum_cases
   - sorted_imports
+  - superfluous_else
   - strict_fileprivate
   - switch_case_on_newline
   - trailing_closure
@@ -155,7 +156,6 @@ opt_in_rules: # some rules are only opt-in
   - sorted_first_last
   - statement_position
   - superfluous_disable_command
-  - superfluous_else
   - switch_case_alignment
   - syntactic_sugar
   - test_case_accessibility
