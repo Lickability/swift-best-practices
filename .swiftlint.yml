@@ -35,7 +35,7 @@ disabled_rules: # rule identifiers to exclude from running
   - quick_discouraged_focused_test
   - quick_discouraged_pending_test
   - raw_value_for_camel_cased_codable_enum
-  - redundant_self_in_closure
+  - redundant_self
   - redundant_string_enum_value
   - required_deinit
   - reduce_into
@@ -126,7 +126,7 @@ opt_in_rules: # some rules are only opt-in
   - notification_center_detachment
   - opening_brace
   - operator_usage_whitespace
-  - operator_whitespace
+  - function_name_whitespace
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
@@ -145,7 +145,7 @@ opt_in_rules: # some rules are only opt-in
   - redundant_discardable_let
   - redundant_nil_coalescing
   - redundant_objc_attribute
-  - redundant_optional_initialization
+  - implicit_optional_initialization
   - redundant_void_return
   - reduce_boolean
   - required_enum_case
