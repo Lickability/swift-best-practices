@@ -58,7 +58,6 @@ disabled_rules: # rule identifiers to exclude from running
   - file_types_order
   
 opt_in_rules: # some rules are only opt-in
-  - file_header
   - accessibility_label_for_image
   - accessibility_trait_for_button
   - array_init
@@ -96,6 +95,7 @@ opt_in_rules: # some rules are only opt-in
   - explicit_init
   - fallthrough
   - fatal_error_message
+  - file_header
   - first_where
   - flatmap_over_map_reduce
   - for_where
